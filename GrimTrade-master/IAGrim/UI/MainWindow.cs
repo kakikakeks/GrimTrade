@@ -808,6 +808,10 @@ namespace IAGrim.UI {
             //transferController.TransferToOpenStash(pi);
         }
 
+        private void statusLabel_Click(object sender, EventArgs e)
+        {
+
+        }
     } // CLASS
 
 
