@@ -77,14 +77,6 @@
     <SignManifests>false</SignManifests>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="AutoMapper, Version=5.1.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
-      <HintPath>..\packages\AutoMapper.5.1.1\lib\net45\AutoMapper.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="AutoUpdater.NET, Version=1.4.1.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\Auto updater\AutoUpdater.NET\bin\Release\AutoUpdater.NET.dll</HintPath>
-    </Reference>
     <Reference Include="Gameloop.Vdf, Version=0.4.3.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Gameloop.Vdf.0.4.3\lib\net45\Gameloop.Vdf.dll</HintPath>
       <Private>True</Private>

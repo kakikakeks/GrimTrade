@@ -10,20 +10,20 @@ using System.Runtime.InteropServices;
 using System.Threading;
 using System.Timers;
 using System.Windows.Forms;
-using AutoUpdaterDotNET;
+//using AutoUpdaterDotNET;
 using CefSharp;
 using EvilsoftCommons;
 using EvilsoftCommons.Cloud;
-using EvilsoftCommons.DllInjector;
-using EvilsoftCommons.Exceptions;
+//using EvilsoftCommons.DllInjector;
+//using EvilsoftCommons.Exceptions;
 using IAGrim.Backup;
 using IAGrim.BuddyShare;
 using IAGrim.Database.Interfaces;
 using IAGrim.Parsers;
 using IAGrim.Parsers.Arz;
 using IAGrim.Properties;
-using IAGrim.Services;
-using IAGrim.Services.MessageProcessor;
+//using IAGrim.Services;
+//using IAGrim.Services.MessageProcessor;
 using IAGrim.UI.Controller;
 using IAGrim.UI.Misc;
 using IAGrim.UI.Popups;
@@ -61,16 +61,16 @@ namespace IAGrim.UI {
         private DateTime _lastAutomaticUpdateCheck = default(DateTime);
         private DateTime _lastTimeNotMinimized = DateTime.Now;
         private readonly DynamicPacker _dynamicPacker;
-        private readonly List<IMessageProcessor> _messageProcessors = new List<IMessageProcessor>();
+        //private readonly List<IMessageProcessor> _messageProcessors = new List<IMessageProcessor>();
 
         private SearchWindow _searchWindow;
         private StashManager _stashManager;
         private BuddySettings _buddySettingsWindow;
 
-        private Action<RegisterWindow.DataAndType> _registerWindowDelegate;
-        private RegisterWindow _window;
-        private InjectionHelper _injector;
-        private ProgressChangedEventHandler _injectorCallbackDelegate;
+        //private Action<RegisterWindow.DataAndType> _registerWindowDelegate;
+        //private RegisterWindow _window;
+        //private InjectionHelper _injector;
+        //private ProgressChangedEventHandler _injectorCallbackDelegate;
 
         private Timer _timerReportUsage;
         private BuddyBackgroundThread _buddyBackgroundThread;
@@ -99,28 +99,30 @@ namespace IAGrim.UI {
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void InjectorCallback(object sender, ProgressChangedEventArgs e) {
-            if (InvokeRequired) {
-                Invoke((MethodInvoker)delegate { InjectorCallback(sender, e); });
-            } else {
-                if (e.ProgressPercentage == InjectionHelper.INJECTION_ERROR) {
-                    GlobalSettings.StashStatus = StashAvailability.ERROR;
-                    statusLabel.Text = e.UserState as string;
-                }
-                // No grim dawn client, so stash is closed!
-                else if (e.ProgressPercentage == InjectionHelper.NO_PROCESS_FOUND_ON_STARTUP) {
-                    if (GlobalSettings.StashStatus == StashAvailability.UNKNOWN) {
-                        GlobalSettings.StashStatus = StashAvailability.CLOSED;
-                        GlobalSettings.GrimDawnRunning = false; // V1.0.4.0 hotfix
-                    }
-                }
-                // No grim dawn client, so stash is closed!
-                else if (e.ProgressPercentage == InjectionHelper.NO_PROCESS_FOUND) {
-                    GlobalSettings.StashStatus = StashAvailability.CLOSED;
-                    GlobalSettings.GrimDawnRunning = false;// V1.0.4.0 hotfix
-                }
-            }
-        }
+        /// 
+
+        //private void InjectorCallback(object sender, ProgressChangedEventArgs e) {
+        //    if (InvokeRequired) {
+        //        Invoke((MethodInvoker)delegate { InjectorCallback(sender, e); });
+        //    } else {
+        //        if (e.ProgressPercentage == InjectionHelper.INJECTION_ERROR) {
+        //            GlobalSettings.StashStatus = StashAvailability.ERROR;
+        //            statusLabel.Text = e.UserState as string;
+        //        }
+        //        // No grim dawn client, so stash is closed!
+        //        else if (e.ProgressPercentage == InjectionHelper.NO_PROCESS_FOUND_ON_STARTUP) {
+        //            if (GlobalSettings.StashStatus == StashAvailability.UNKNOWN) {
+        //                GlobalSettings.StashStatus = StashAvailability.CLOSED;
+        //                GlobalSettings.GrimDawnRunning = false; // V1.0.4.0 hotfix
+        //            }
+        //        }
+        //        // No grim dawn client, so stash is closed!
+        //        else if (e.ProgressPercentage == InjectionHelper.NO_PROCESS_FOUND) {
+        //            GlobalSettings.StashStatus = StashAvailability.CLOSED;
+        //            GlobalSettings.GrimDawnRunning = false;// V1.0.4.0 hotfix
+        //        }
+        //    }
+        //}
 
 
 #endregion Stash Status
@@ -247,11 +249,11 @@ namespace IAGrim.UI {
 
             panelHelp.Controls.Clear();
 
-            _injector?.Dispose();
-            _injector = null;
+            //_injector?.Dispose();
+            //_injector = null;
 
-            _window?.Dispose();
-            _window = null;
+            //_window?.Dispose();
+            //_window = null;
 
             IterAndCloseForms(Controls);
         }
@@ -261,15 +263,15 @@ namespace IAGrim.UI {
         /// Callback called when the Grim Dawn hook sends messages to IA
         /// </summary>
         /// <returns></returns>
-        private void CustomWndProc(RegisterWindow.DataAndType bt)
-        {
-            // Most if not all actions may interact with SQL
-            // SQL is done on the UI thread.
-            if (InvokeRequired)
-            {
-                Invoke((MethodInvoker)delegate { CustomWndProc(bt); });
-                return;
-            }
+        //private void CustomWndProc(RegisterWindow.DataAndType bt)
+        //{
+            //// Most if not all actions may interact with SQL
+            //// SQL is done on the UI thread.
+            //if (InvokeRequired)
+            //{
+            //    Invoke((MethodInvoker)delegate { CustomWndProc(bt); });
+            //    return;
+            //}
 
 
             //    MessageType type = (MessageType)bt.Type;
@@ -283,60 +285,60 @@ namespace IAGrim.UI {
             //        GlobalSettings.GrimDawnRunning = true; // V1.0.4.0 hotfix   
             //    }
 
-            int offset;
-            switch (type)
-            {
-                case MessageType.TYPE_DetectedStashToLootFrom:
-                    {
-                        int stashToLootFrom = IOHelper.GetInt(bt.Data, 0);
-                        Logger.Info($"Grim Dawn hook reports it will be looting from stash tab: {stashToLootFrom}");
-                    }
-                    break;
+            //int offset;
+            //switch (type)
+            //{
+            //    case MessageType.TYPE_DetectedStashToLootFrom:
+            //        {
+            //            int stashToLootFrom = IOHelper.GetInt(bt.Data, 0);
+            //            Logger.Info($"Grim Dawn hook reports it will be looting from stash tab: {stashToLootFrom}");
+            //        }
+            //        break;
 
-                case MessageType.TYPE_REPORT_WORKER_THREAD_LAUNCHED:
-                    offset = IOHelper.GetInt(bt.Data, 0);
-                    Logger.Info($"Grim Dawn hook reports successful launch, offset: {offset}");
-                    break;
+            //    case MessageType.TYPE_REPORT_WORKER_THREAD_LAUNCHED:
+            //        offset = IOHelper.GetInt(bt.Data, 0);
+            //        Logger.Info($"Grim Dawn hook reports successful launch, offset: {offset}");
+            //        break;
 
-                case MessageType.TYPE_REPORT_WORKER_THREAD_EXPERIMENTAL_LAUNCHED:
-                    offset = IOHelper.GetInt(bt.Data, 0);
-            Logger.Info($"Grim Dawn exp-hook reports successful launch, offset: {offset}");
-            break;
+            //    case MessageType.TYPE_REPORT_WORKER_THREAD_EXPERIMENTAL_LAUNCHED:
+            //        offset = IOHelper.GetInt(bt.Data, 0);
+            //Logger.Info($"Grim Dawn exp-hook reports successful launch, offset: {offset}");
+            //break;
 
 
 
-                case MessageType.TYPE_GameInfo_IsHardcore:
-                case MessageType.TYPE_GameInfo_IsHardcore_via_init:
-                    Logger.Info($"TYPE_GameInfo_IsHardcore({bt.Data[0] > 0}, {type})");
-                    if (_settingsController.AutoUpdateModSettings) {
-                        _searchWindow.ModSelectionHandler.UpdateModSelection(bt.Data[0] > 0);
-                    }
+        //        case MessageType.TYPE_GameInfo_IsHardcore:
+        //        case MessageType.TYPE_GameInfo_IsHardcore_via_init:
+        //            Logger.Info($"TYPE_GameInfo_IsHardcore({bt.Data[0] > 0}, {type})");
+        //            if (_settingsController.AutoUpdateModSettings) {
+        //                _searchWindow.ModSelectionHandler.UpdateModSelection(bt.Data[0] > 0);
+        //            }
 
-                    break;
+        //            break;
 
-                case MessageType.TYPE_GameInfo_IsHardcore_via_init_2:
-                    Logger.Debug("GameInfo object created");
-                    break;
+        //        case MessageType.TYPE_GameInfo_IsHardcore_via_init_2:
+        //            Logger.Debug("GameInfo object created");
+        //            break;
 
-                case MessageType.TYPE_GameInfo_SetModName:
-                    Logger.InfoFormat("TYPE_GameInfo_SetModName({0})", IOHelper.GetPrefixString(bt.Data, 0));
-            if (_settingsController.AutoUpdateModSettings)
-            {
-                _searchWindow.ModSelectionHandler.UpdateModSelection(IOHelper.GetPrefixString(bt.Data, 0));
-            }
-            break;
+        //        case MessageType.TYPE_GameInfo_SetModName:
+        //            Logger.InfoFormat("TYPE_GameInfo_SetModName({0})", IOHelper.GetPrefixString(bt.Data, 0));
+        //    if (_settingsController.AutoUpdateModSettings)
+        //    {
+        //        _searchWindow.ModSelectionHandler.UpdateModSelection(IOHelper.GetPrefixString(bt.Data, 0));
+        //    }
+        //    break;
 
-        }
+        //}
 
-            if (bt.Type == 1011) {
-                Logger.Debug("dll_GameInfo_SetModNameWideString");
+        //    if (bt.Type == 1011) {
+        //        Logger.Debug("dll_GameInfo_SetModNameWideString");
                 
-            }
-            else if (bt.Type == 1010) {
-                Logger.Debug($"Hooked_GameInfo_SetModName {IOHelper.GetPrefixString(bt.Data, 0)}");
-            }
+        //    }
+        //    else if (bt.Type == 1010) {
+        //        Logger.Debug($"Hooked_GameInfo_SetModName {IOHelper.GetPrefixString(bt.Data, 0)}");
+        //    }
 
-        }
+        //}
 
         protected override bool ProcessCmdKey(ref Message msg, Keys keyData) {
             if (keyData == Keys.Escape) {
@@ -425,21 +427,21 @@ namespace IAGrim.UI {
                 Thread.CurrentThread.Name = "UI";
 
 
-            ExceptionReporter.EnableLogUnhandledOnThread();
+            //ExceptionReporter.EnableLogUnhandledOnThread();
             SizeChanged += OnMinimizeWindow;
 
             buttonDevTools.Visible = Debugger.IsAttached;
 
 
-            _stashManager = new StashManager(_playerItemDao, _databaseItemStatDao);
-            if (!_stashManager.StartMonitorStashfile(SetFeedback, ListviewUpdateTrigger)) {
-                MessageBox.Show("Ooops!\nIt seems you are synchronizing your saves to steam cloud..\nThis tool is unfortunately not compatible.\n");
-                Process.Start("http://www.grimdawn.com/forums/showthread.php?t=20752");
+            //_stashManager = new StashManager(_playerItemDao, _databaseItemStatDao);
+            //if (!_stashManager.StartMonitorStashfile(SetFeedback, ListviewUpdateTrigger)) {
+            //    MessageBox.Show("Ooops!\nIt seems you are synchronizing your saves to steam cloud..\nThis tool is unfortunately not compatible.\n");
+            //    Process.Start("http://www.grimdawn.com/forums/showthread.php?t=20752");
 
-                if (!Debugger.IsAttached)
-                    Close();
+            //    if (!Debugger.IsAttached)
+            //        Close();
 
-            }
+            //}
 
             //ItemHtmlWriter.Write(new List<PlayerHeldItem>());
 
@@ -501,7 +503,7 @@ namespace IAGrim.UI {
                     backupSettings?.BackupSettings_GotFocus();
             });
             addAndShow(backupSettings, backupPanel);
-            addAndShow(new ModsDatabaseConfig(DatabaseLoadedTrigger, _databaseSettingDao, _arzParser, _playerItemDao), modsPanel);
+            //addAndShow(new ModsDatabaseConfig(DatabaseLoadedTrigger, _databaseSettingDao, _arzParser, _playerItemDao), modsPanel);
             addAndShow(new HelpTab(), panelHelp);            
             addAndShow(new LoggingWindow(), panelLogging);
 
@@ -510,17 +512,17 @@ namespace IAGrim.UI {
             addAndShow(_searchWindow, searchPanel);
 
 
-            addAndShow(
-                new SettingsWindow(_tooltipHelper,
-                    ListviewUpdateTrigger,
-                    _databaseSettingDao,
-                    _databaseItemDao,
-                    _playerItemDao,
-                    _arzParser,
-                    _searchWindow.ModSelectionHandler.GetAvailableModSelection(),
-                    _stashManager
-                ),
-                settingsPanel);
+            //addAndShow(
+            //    new SettingsWindow(_tooltipHelper,
+            //        ListviewUpdateTrigger,
+            //        _databaseSettingDao,
+            //        _databaseItemDao,
+            //        _playerItemDao,
+            //        _arzParser,
+            //        _searchWindow.ModSelectionHandler.GetAvailableModSelection() 
+            //        _stashManager
+            //    ),
+            //    settingsPanel);
 
 
             new StashTabPicker(_stashManager.NumStashTabs).SaveStashSettingsToRegistry();
@@ -537,14 +539,14 @@ namespace IAGrim.UI {
             _timerReportUsage.Elapsed += (a1, a2) => {
                 if (Thread.CurrentThread.Name == null)
                     Thread.CurrentThread.Name = "ReportUsageThread";
-                ReportUsage();
+                //ReportUsage();
             };
             _timerReportUsage.Interval = 12 * hour;
             _timerReportUsage.AutoReset = true;
             _timerReportUsage.Start();
 
 
-            Shown += (_, __) => { StartInjector(); };
+            //Shown += (_, __) => { StartInjector(); };
 
             //settingsController.Data.budd
             BuddySyncEnabled = (bool)Settings.Default.BuddySyncEnabled;
@@ -584,32 +586,32 @@ namespace IAGrim.UI {
                 }
             }
 
-            _messageProcessors.Add(new ItemPositionFinder(_dynamicPacker));
-            _messageProcessors.Add(new PlayerPositionTracker());
-            _messageProcessors.Add(new StashStatusHandler());
-            _messageProcessors.Add(new ItemReceivedProcessor(_searchWindow, _stashManager, _playerItemDao));
-            _messageProcessors.Add(new ItemInjectCallbackProcessor(_searchWindow.UpdateListviewDelayed, _playerItemDao));
-            _messageProcessors.Add(new ItemSpawnedProcessor());
-            _messageProcessors.Add(new CloudDetectorProcessor(SetFeedback));
-            _messageProcessors.Add(new GenericErrorHandler());
+            //_messageProcessors.Add(new ItemPositionFinder(_dynamicPacker));
+            //_messageProcessors.Add(new PlayerPositionTracker());
+            //_messageProcessors.Add(new StashStatusHandler());
+            //_messageProcessors.Add(new ItemReceivedProcessor(_searchWindow, _stashManager, _playerItemDao));
+            //_messageProcessors.Add(new ItemInjectCallbackProcessor(_searchWindow.UpdateListviewDelayed, _playerItemDao));
+            //_messageProcessors.Add(new ItemSpawnedProcessor());
+            //_messageProcessors.Add(new CloudDetectorProcessor(SetFeedback));
+            //_messageProcessors.Add(new GenericErrorHandler());
             //messageProcessors.Add(new LogMessageProcessor());
 #if DEBUG
             //messageProcessors.Add(new DebugMessageProcessor());
 #endif
 
-            GlobalSettings.StashStatusChanged += GlobalSettings_StashStatusChanged;
+            //GlobalSettings.StashStatusChanged += GlobalSettings_StashStatusChanged;
 
-            _transferController = new ItemTransferController(
-                _cefBrowserHandler, 
-                SetFeedback, 
-                SetTooltipAtmouse, 
-                _settingsController, 
-                _searchWindow, 
-                _dynamicPacker,
-                _playerItemDao,
-                _stashManager,
-                new ItemStatService(_databaseItemStatDao, _itemSkillDao)
-                );
+            //_transferController = new ItemTransferController(
+            //    _cefBrowserHandler, 
+            //    SetFeedback, 
+            //    SetTooltipAtmouse, 
+            //    _settingsController, 
+            //    _searchWindow, 
+            //    _dynamicPacker,
+            //    _playerItemDao,
+            //    _stashManager,
+            //    new ItemStatService(_databaseItemStatDao, _itemSkillDao)
+            //    );
             Application.AddMessageFilter(new MousewheelMessageFilter());
 
 
