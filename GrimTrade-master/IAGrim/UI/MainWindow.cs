@@ -42,17 +42,17 @@ namespace IAGrim.UI {
         private static readonly ILog Logger = LogManager.GetLogger(typeof(MainWindow));
         readonly CefBrowserHandler _cefBrowserHandler;
 
-        private string UPDATE_XML {
-            get {
-                var v = Assembly.GetExecutingAssembly().GetName().Version;
-                string version = $"{v.Major}.{v.Minor}.{v.Build}.{v.Revision}";
+        //private string UPDATE_XML {
+        //    get {
+        //        var v = Assembly.GetExecutingAssembly().GetName().Version;
+        //        string version = $"{v.Major}.{v.Minor}.{v.Build}.{v.Revision}";
 
-                if ((bool)Settings.Default.SubscribeExperimentalUpdates) {
-                    return $"http://grimdawn.dreamcrash.org/ia/version.php?beta&version={version}";
-                }
-                return $"http://grimdawn.dreamcrash.org/ia/version.php?version={version}";
-            }
-        }
+        //        if ((bool)Settings.Default.SubscribeExperimentalUpdates) {
+        //            return $"http://grimdawn.dreamcrash.org/ia/version.php?beta&version={version}";
+        //        }
+        //        return $"http://grimdawn.dreamcrash.org/ia/version.php?version={version}";
+        //    }
+        //}
 
         private readonly ISettingsReadController _settingsController = new SettingsController();
 
@@ -180,15 +180,15 @@ namespace IAGrim.UI {
         /// Report usage once every 12 hours, in case the user runs it 'for ever'
         /// Will halt if not opened for 38 hours
         /// </summary>
-        private void ReportUsage() {
-            if ((DateTime.Now - _lastTimeNotMinimized).TotalHours < 38) {
-                if (_reportUsageStatistics.Elapsed.Hours > 12) {
-                    _reportUsageStatistics.Restart();
-                    ThreadPool.QueueUserWorkItem(m => ExceptionReporter.ReportUsage());
-                    AutoUpdater.Start(UPDATE_XML);
-                }
-            }
-        }
+        //private void ReportUsage() {
+        //    if ((DateTime.Now - _lastTimeNotMinimized).TotalHours < 38) {
+        //        if (_reportUsageStatistics.Elapsed.Hours > 12) {
+        //            _reportUsageStatistics.Restart();
+        //            ThreadPool.QueueUserWorkItem(m => ExceptionReporter.ReportUsage());
+        //            AutoUpdater.Start(UPDATE_XML);
+        //        }
+        //    }
+        //}
 
 
         private void OnlineBackupAuthFailureHandler() {
@@ -261,33 +261,37 @@ namespace IAGrim.UI {
         /// Callback called when the Grim Dawn hook sends messages to IA
         /// </summary>
         /// <returns></returns>
-        private void CustomWndProc(RegisterWindow.DataAndType bt) {
+        private void CustomWndProc(RegisterWindow.DataAndType bt)
+        {
             // Most if not all actions may interact with SQL
             // SQL is done on the UI thread.
-            if (InvokeRequired) {
+            if (InvokeRequired)
+            {
                 Invoke((MethodInvoker)delegate { CustomWndProc(bt); });
                 return;
             }
 
 
-            MessageType type = (MessageType)bt.Type;
-            
-            foreach (IMessageProcessor t in _messageProcessors) {
-                t.Process(type, bt.Data);
-            }
+            //    MessageType type = (MessageType)bt.Type;
 
-            if (!GlobalSettings.GrimDawnRunning) {
-                Logger.Debug("GrimDawnRunning flag has been changed from false to true");
-                GlobalSettings.GrimDawnRunning = true; // V1.0.4.0 hotfix   
-            }
+            //    foreach (IMessageProcessor t in _messageProcessors) {
+            //        t.Process(type, bt.Data);
+            //    }
+
+            //    if (!GlobalSettings.GrimDawnRunning) {
+            //        Logger.Debug("GrimDawnRunning flag has been changed from false to true");
+            //        GlobalSettings.GrimDawnRunning = true; // V1.0.4.0 hotfix   
+            //    }
 
             int offset;
-            switch (type) {
-                case MessageType.TYPE_DetectedStashToLootFrom: {
-                    int stashToLootFrom = IOHelper.GetInt(bt.Data, 0);
+            switch (type)
+            {
+                case MessageType.TYPE_DetectedStashToLootFrom:
+                    {
+                        int stashToLootFrom = IOHelper.GetInt(bt.Data, 0);
                         Logger.Info($"Grim Dawn hook reports it will be looting from stash tab: {stashToLootFrom}");
                     }
-                break;
+                    break;
 
                 case MessageType.TYPE_REPORT_WORKER_THREAD_LAUNCHED:
                     offset = IOHelper.GetInt(bt.Data, 0);
@@ -296,8 +300,8 @@ namespace IAGrim.UI {
 
                 case MessageType.TYPE_REPORT_WORKER_THREAD_EXPERIMENTAL_LAUNCHED:
                     offset = IOHelper.GetInt(bt.Data, 0);
-                    Logger.Info($"Grim Dawn exp-hook reports successful launch, offset: {offset}");
-                    break;
+            Logger.Info($"Grim Dawn exp-hook reports successful launch, offset: {offset}");
+            break;
 
 
 
@@ -316,12 +320,13 @@ namespace IAGrim.UI {
 
                 case MessageType.TYPE_GameInfo_SetModName:
                     Logger.InfoFormat("TYPE_GameInfo_SetModName({0})", IOHelper.GetPrefixString(bt.Data, 0));
-                    if (_settingsController.AutoUpdateModSettings) {
-                        _searchWindow.ModSelectionHandler.UpdateModSelection(IOHelper.GetPrefixString(bt.Data, 0));
-                    }
-                    break;
-
+            if (_settingsController.AutoUpdateModSettings)
+            {
+                _searchWindow.ModSelectionHandler.UpdateModSelection(IOHelper.GetPrefixString(bt.Data, 0));
             }
+            break;
+
+        }
 
             if (bt.Type == 1011) {
                 Logger.Debug("dll_GameInfo_SetModNameWideString");
@@ -357,54 +362,61 @@ namespace IAGrim.UI {
             _tooltipHelper.ShowTooltipAtMouse(message, _cefBrowserHandler.BrowserControl);
         }
 
-        private void CheckForUpdates() {
-            if (GetTickCount64() > 5 * 60 * 1000 && (DateTime.Now - _lastAutomaticUpdateCheck).TotalHours > 36) {
-                AutoUpdater.LetUserSelectRemindLater = true;
-                AutoUpdater.RemindLaterTimeSpan = RemindLaterFormat.Days;
-                AutoUpdater.RemindLaterAt = 7;
-                AutoUpdater.Start(UPDATE_XML);
+//private void CheckForUpdates()
+//{
+//    if (GetTickCount64() > 5 * 60 * 1000 && (DateTime.Now - _lastAutomaticUpdateCheck).TotalHours > 36)
+//    {
+//        AutoUpdater.LetUserSelectRemindLater = true;
+//        AutoUpdater.RemindLaterTimeSpan = RemindLaterFormat.Days;
+//        AutoUpdater.RemindLaterAt = 7;
+//        AutoUpdater.Start(UPDATE_XML);
 
-                _lastAutomaticUpdateCheck = DateTime.Now;
-                Logger.Info("Checking for updates..");
-            }
-        }
+//        _lastAutomaticUpdateCheck = DateTime.Now;
+//        Logger.Info("Checking for updates..");
+//    }
+//}
 
-        private void TimerTickLookForGrimDawn(object sender, EventArgs e) {
-            System.Windows.Forms.Timer timer = sender as System.Windows.Forms.Timer;
-            if (Thread.CurrentThread.Name == null)
-                Thread.CurrentThread.Name = "DetectGrimDawnTimer";
+//private void TimerTickLookForGrimDawn(object sender, EventArgs e)
+//{
+//    System.Windows.Forms.Timer timer = sender as System.Windows.Forms.Timer;
+//    if (Thread.CurrentThread.Name == null)
+//        Thread.CurrentThread.Name = "DetectGrimDawnTimer";
 
-            string gdPath = GrimDawnDetector.GetGrimLocation();
-            if (!string.IsNullOrEmpty(gdPath) && Directory.Exists(gdPath)) {
-                timer?.Stop();
+//    string gdPath = GrimDawnDetector.GetGrimLocation();
+//    if (!string.IsNullOrEmpty(gdPath) && Directory.Exists(gdPath))
+//    {
+//        timer?.Stop();
 
-                // Attempt to force a database update
-                foreach (Control c in modsPanel.Controls) {
-                    ModsDatabaseConfig config = c as ModsDatabaseConfig;
-                    if (config != null) {
-                        config.ForceDatabaseUpdate(gdPath, true);
-                        break;
-                    }
-                }
+//        // Attempt to force a database update
+//        foreach (Control c in modsPanel.Controls)
+//        {
+//            ModsDatabaseConfig config = c as ModsDatabaseConfig;
+//            if (config != null)
+//            {
+//                config.ForceDatabaseUpdate(gdPath, true);
+//                break;
+//            }
+//        }
 
-                Logger.InfoFormat("Found Grim Dawn at {0}", gdPath);
-            }
-        }
+//        Logger.InfoFormat("Found Grim Dawn at {0}", gdPath);
+//    }
+//}
 
-        /// <summary>
-        /// We've looted some items, so make sure the listview is up to date!
-        /// Otherwise people freak out.
-        ///
-        /// The first ~1700 users did not notice at all, but past that seems its the end of days if items don't appear immediately.
-        /// </summary>
-        private void ListviewUpdateTrigger() {
-            _searchWindow?.UpdateListviewDelayed();
-        }
+/// <summary>
+/// We've looted some items, so make sure the listview is up to date!
+/// Otherwise people freak out.
+///
+/// The first ~1700 users did not notice at all, but past that seems its the end of days if items don't appear immediately.
+/// </summary>
+/// 
+//private void ListviewUpdateTrigger() {
+//            _searchWindow?.UpdateListviewDelayed();
+//        }
 
-        private void DatabaseLoadedTrigger() {
-            _searchWindow.UpdateInterface();
-            _searchWindow?.UpdateListviewDelayed(); 
-        }
+//        private void DatabaseLoadedTrigger() {
+//            _searchWindow.UpdateInterface();
+//            _searchWindow?.UpdateListviewDelayed(); 
+//        }
 
 
 
@@ -445,29 +457,34 @@ namespace IAGrim.UI {
             searchController.JsBind.OnTransfer += TransferItem;
             searchController.JsBind.OnClipboard += SetItemsClipboard;
 
-            // Load the grim database
-            string gdPath = GrimDawnDetector.GetGrimLocation();
-            if (!string.IsNullOrEmpty(gdPath)) {
-            } else {
-                Logger.Warn("Could not find the Grim Dawn install location");
-                statusLabel.Text = "Could not find the Grim Dawn install location";
+    //// Load the grim database
+    //string gdPath = GrimDawnDetector.GetGrimLocation();
+    //if (!string.IsNullOrEmpty(gdPath))
+    //{
+    //}
+    //else
+    //{
+    //    Logger.Warn("Could not find the Grim Dawn install location");
+    //    statusLabel.Text = "Could not find the Grim Dawn install location";
 
-                var timer = new System.Windows.Forms.Timer();
-                timer.Tick += TimerTickLookForGrimDawn;
-                timer.Interval = 10000;
-                timer.Start();
-            }
+    //    var timer = new System.Windows.Forms.Timer();
+    //    timer.Tick += TimerTickLookForGrimDawn;
+    //    timer.Interval = 10000;
+    //    timer.Start();
+    //}
 
-            // Load recipes
-            foreach (string file in GlobalPaths.FormulasFiles) {
-                if (!string.IsNullOrEmpty(file)) {
-                    bool isHardcore = file.EndsWith("gsh");
-                    Logger.InfoFormat("Reading recipes at \"{0}\", IsHardcore={1}", file, isHardcore);
-                    _recipeParser.UpdateFormulas(file, isHardcore);
-                }
-            }
+    //// Load recipes
+    //foreach (string file in GlobalPaths.FormulasFiles)
+    //{
+    //    if (!string.IsNullOrEmpty(file))
+    //    {
+    //        bool isHardcore = file.EndsWith("gsh");
+    //        Logger.InfoFormat("Reading recipes at \"{0}\", IsHardcore={1}", file, isHardcore);
+    //        _recipeParser.UpdateFormulas(file, isHardcore);
+    //    }
+    //}
 
-            var addAndShow = UIHelper.AddAndShow;
+    var addAndShow = UIHelper.AddAndShow;
 
 
             // Create the tab contents
@@ -616,30 +633,31 @@ namespace IAGrim.UI {
             }
         }
 
-        private void StartInjector() {
-            
+//private void StartInjector()
+//{
 
-            // Start looking for GD processes!
-            _registerWindowDelegate = CustomWndProc;
-            _window = new RegisterWindow("GDIAWindowClass", _registerWindowDelegate);
 
-            // This prevents a implicit cast to new ProgressChangedEventHandler(func), which would hit the GC and before being used from another thread
-            // Same happens when shutting down, fix unknown
-            _injectorCallbackDelegate = InjectorCallback;
+//    // Start looking for GD processes!
+//    _registerWindowDelegate = CustomWndProc;
+//    _window = new RegisterWindow("GDIAWindowClass", _registerWindowDelegate);
 
-            var hasMods = _searchWindow.ModSelectionHandler.HasMods;
-#if DEBUG
-            hasMods = false; // TODO TODO TODO TODO
-#endif
-            // CBA dealing with this.
-            InstalootSettingType instaloot = (InstalootSettingType)Properties.Settings.Default.InstalootSetting;
-            string dllname = (!hasMods && instaloot == InstalootSettingType.Enabled) ? "ItemAssistantHook-exp.dll" : "ItemAssistantHook.dll";
-            Logger.Debug($"Using {dllname} as the default hook due to HasMods: {hasMods}, Instaloot setting: {instaloot}");
+//    // This prevents a implicit cast to new ProgressChangedEventHandler(func), which would hit the GC and before being used from another thread
+//    // Same happens when shutting down, fix unknown
+//    _injectorCallbackDelegate = InjectorCallback;
 
-            _injector = new InjectionHelper(new BackgroundWorker(), _injectorCallbackDelegate, false, "Grim Dawn", string.Empty, dllname);
-        }
+//    var hasMods = _searchWindow.ModSelectionHandler.HasMods;
+//#if DEBUG
+//    hasMods = false; // TODO TODO TODO TODO
+//#endif
+//    // CBA dealing with this.
+//    InstalootSettingType instaloot = (InstalootSettingType)Properties.Settings.Default.InstalootSetting;
+//    string dllname = (!hasMods && instaloot == InstalootSettingType.Enabled) ? "ItemAssistantHook-exp.dll" : "ItemAssistantHook.dll";
+//    Logger.Debug($"Using {dllname} as the default hook due to HasMods: {hasMods}, Instaloot setting: {instaloot}");
 
-        void TransferItem(object ignored, EventArgs args) {
+//    _injector = new InjectionHelper(new BackgroundWorker(), _injectorCallbackDelegate, false, "Grim Dawn", string.Empty, dllname);
+//}
+
+void TransferItem(object ignored, EventArgs args) {
 
             if (InvokeRequired) {
                 Invoke((MethodInvoker)delegate {
@@ -651,54 +669,57 @@ namespace IAGrim.UI {
             }
         }
 
-        private void GlobalSettings_StashStatusChanged(object sender, EventArgs e) {
+//private void GlobalSettings_StashStatusChanged(object sender, EventArgs e)
+//{
 
-            if (InvokeRequired) {
-                Invoke((MethodInvoker)delegate { GlobalSettings_StashStatusChanged(sender, e); });
-                return;
-            }
+//    if (InvokeRequired)
+//    {
+//        Invoke((MethodInvoker)delegate { GlobalSettings_StashStatusChanged(sender, e); });
+//        return;
+//    }
 
-            switch (GlobalSettings.StashStatus) {
-                case StashAvailability.OPEN:
-                    tsStashStatus.ForeColor = Color.FromArgb(255, 192, 0, 0);
-                    tsStashStatus.Text = GlobalSettings.Language.GetTag("iatag_stash_open");
-                    break;
-                case StashAvailability.CRAFTING:
-                    tsStashStatus.ForeColor = Color.FromArgb(255, 192, 0, 0);
-                    tsStashStatus.Text = GlobalSettings.Language.GetTag("iatag_stash_crafting");
-                    break;
-                case StashAvailability.CLOSED:
-                    tsStashStatus.ForeColor = Color.FromArgb(255, 0, 142, 0);
-                    tsStashStatus.Text = GlobalSettings.Language.GetTag("iatag_stash_closed");
-                    break;
-                case StashAvailability.ERROR:
-                    tsStashStatus.ForeColor = Color.FromArgb(255, 192, 0, 0);
-                    tsStashStatus.Text = GlobalSettings.Language.GetTag("iatag_stash_error");
-                    break;
-                case StashAvailability.UNKNOWN:
-                    tsStashStatus.ForeColor = Color.FromArgb(255, 192, 0, 0);
-                    tsStashStatus.Text = GlobalSettings.Language.GetTag("iatag_stash_unknown");
-                    break;
-                case StashAvailability.SORTED:
-                    tsStashStatus.ForeColor = Color.FromArgb(255, 192, 0, 0);
-                    tsStashStatus.Text = GlobalSettings.Language.GetTag("iatag_stash_sorted");
-                    break;
-                default:
-                    tsStashStatus.ForeColor = Color.FromArgb(255, 192, 0, 0);
-                    tsStashStatus.Text = GlobalSettings.Language.GetTag("iatag_stash_") + GlobalSettings.StashStatus;
-                    break;
+//    switch (GlobalSettings.StashStatus)
+//    {
+//        case StashAvailability.OPEN:
+//            tsStashStatus.ForeColor = Color.FromArgb(255, 192, 0, 0);
+//            tsStashStatus.Text = GlobalSettings.Language.GetTag("iatag_stash_open");
+//            break;
+//        case StashAvailability.CRAFTING:
+//            tsStashStatus.ForeColor = Color.FromArgb(255, 192, 0, 0);
+//            tsStashStatus.Text = GlobalSettings.Language.GetTag("iatag_stash_crafting");
+//            break;
+//        case StashAvailability.CLOSED:
+//            tsStashStatus.ForeColor = Color.FromArgb(255, 0, 142, 0);
+//            tsStashStatus.Text = GlobalSettings.Language.GetTag("iatag_stash_closed");
+//            break;
+//        case StashAvailability.ERROR:
+//            tsStashStatus.ForeColor = Color.FromArgb(255, 192, 0, 0);
+//            tsStashStatus.Text = GlobalSettings.Language.GetTag("iatag_stash_error");
+//            break;
+//        case StashAvailability.UNKNOWN:
+//            tsStashStatus.ForeColor = Color.FromArgb(255, 192, 0, 0);
+//            tsStashStatus.Text = GlobalSettings.Language.GetTag("iatag_stash_unknown");
+//            break;
+//        case StashAvailability.SORTED:
+//            tsStashStatus.ForeColor = Color.FromArgb(255, 192, 0, 0);
+//            tsStashStatus.Text = GlobalSettings.Language.GetTag("iatag_stash_sorted");
+//            break;
+//        default:
+//            tsStashStatus.ForeColor = Color.FromArgb(255, 192, 0, 0);
+//            tsStashStatus.Text = GlobalSettings.Language.GetTag("iatag_stash_") + GlobalSettings.StashStatus;
+//            break;
 
-            }
-        }
+//    }
+//}
 
 #region Tray and Menu
 
-        /// <summary>
-        /// Minimize to tray
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void OnMinimizeWindow(object sender, EventArgs e) {
+/// <summary>
+/// Minimize to tray
+/// </summary>
+/// <param name="sender"></param>
+/// <param name="e"></param>
+private void OnMinimizeWindow(object sender, EventArgs e) {
             try {
                 if (_settingsController.MinimizeToTray) {
                     if (WindowState == FormWindowState.Minimized) {

@@ -118,7 +118,7 @@
             this.tabPageItems.Size = new System.Drawing.Size(699, 561);
             this.tabPageItems.TabIndex = 0;
             this.tabPageItems.Tag = "iatag_ui_tab_items";
-            this.tabPageItems.Text = "Items";
+            this.tabPageItems.Text = "Trade";
             // 
             // searchPanel
             // 
