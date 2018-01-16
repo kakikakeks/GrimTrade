@@ -1,5 +1,5 @@
 ﻿using log4net;
-using EvilsoftCommons.Exceptions;
+//using EvilsoftCommons.Exceptions;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -36,7 +36,7 @@ namespace EvilsoftCommons.Cloud {
             catch (Exception ex) {
                 logger.Fatal(ex.Message);
                 logger.Fatal(ex.StackTrace);
-                ExceptionReporter.ReportException(ex);
+                //ExceptionReporter.ReportException(ex);
                 throw;
             }
         }

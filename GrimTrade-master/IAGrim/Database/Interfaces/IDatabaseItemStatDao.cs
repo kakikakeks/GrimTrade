@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using IAGrim.Database.DAO.Dto;
 using IAGrim.Services.Dto;
+//using IAGrim.Services.Dto;
 using NHibernate;
 
 namespace IAGrim.Database.Interfaces {

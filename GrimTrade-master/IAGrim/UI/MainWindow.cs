@@ -64,7 +64,7 @@ namespace IAGrim.UI {
         //private readonly List<IMessageProcessor> _messageProcessors = new List<IMessageProcessor>();
 
         private SearchWindow _searchWindow;
-        private StashManager _stashManager;
+        //private StashManager _stashManager;
         private BuddySettings _buddySettingsWindow;
 
         //private Action<RegisterWindow.DataAndType> _registerWindowDelegate;
@@ -230,8 +230,8 @@ namespace IAGrim.UI {
             FormClosing -= MainWindow_FormClosing;
             SizeChanged -= OnMinimizeWindow;
 
-            _stashManager?.Dispose();
-            _stashManager = null;
+            //_stashManager?.Dispose();
+            //_stashManager = null;
 
             _backupBackgroundTask?.Dispose();
 
@@ -451,12 +451,12 @@ namespace IAGrim.UI {
                 _playerItemDao, 
                 _databaseItemStatDao, 
                 _itemSkillDao, 
-                _buddyItemDao,
-                _stashManager
+                _buddyItemDao
+                //_stashManager
                 );
             _cefBrowserHandler.InitializeChromium(searchController.JsBind, Browser_IsBrowserInitializedChanged);
             searchController.Browser = _cefBrowserHandler;
-            searchController.JsBind.OnTransfer += TransferItem;
+            //searchController.JsBind.OnTransfer += TransferItem;
             searchController.JsBind.OnClipboard += SetItemsClipboard;
 
     //// Load the grim database
@@ -525,7 +525,7 @@ namespace IAGrim.UI {
             //    settingsPanel);
 
 
-            new StashTabPicker(_stashManager.NumStashTabs).SaveStashSettingsToRegistry();
+            //new StashTabPicker(_stashManager.NumStashTabs).SaveStashSettingsToRegistry();
 
 #if !DEBUG
             ThreadPool.QueueUserWorkItem(m => ExceptionReporter.ReportUsage());
@@ -560,31 +560,31 @@ namespace IAGrim.UI {
             EasterEgg.Activate(this);
 
 
-            // Initialize the "stash packer" used to find item positions for transferring items ingame while the stash is open
-            {
-                _dynamicPacker.Initialize(8, 16);
+            //// Initialize the "stash packer" used to find item positions for transferring items ingame while the stash is open
+            //{
+            //    _dynamicPacker.Initialize(8, 16);
 
-                var transferFiles = GlobalPaths.TransferFiles;
-                if (transferFiles.Count > 0) {
-                    var file = transferFiles.MaxBy(m => m.LastAccess);
-                    var stash = StashManager.GetStash(file.Filename);
-                    if (stash != null) {
-                        _dynamicPacker.Initialize(stash.Width, stash.Height);
-                        if (stash.Tabs.Count >= 3) {
-                            foreach (var item in stash.Tabs[2].Items) {
+            //    var transferFiles = GlobalPaths.TransferFiles;
+            //    if (transferFiles.Count > 0) {
+            //        var file = transferFiles.MaxBy(m => m.LastAccess);
+            //        var stash = StashManager.GetStash(file.Filename);
+            //        if (stash != null) {
+            //            _dynamicPacker.Initialize(stash.Width, stash.Height);
+            //            if (stash.Tabs.Count >= 3) {
+            //                foreach (var item in stash.Tabs[2].Items) {
 
-                                byte[] bx = BitConverter.GetBytes(item.XOffset);
-                                uint x = (uint)BitConverter.ToSingle(bx, 0);
+            //                    byte[] bx = BitConverter.GetBytes(item.XOffset);
+            //                    uint x = (uint)BitConverter.ToSingle(bx, 0);
 
-                                byte[] by = BitConverter.GetBytes(item.YOffset);
-                                uint y = (uint)BitConverter.ToSingle(by, 0);
+            //                    byte[] by = BitConverter.GetBytes(item.YOffset);
+            //                    uint y = (uint)BitConverter.ToSingle(by, 0);
 
-                                _dynamicPacker.Insert(item.BaseRecord, item.Seed, x, y);
-                            }
-                        }
-                    }
-                }
-            }
+            //                    _dynamicPacker.Insert(item.BaseRecord, item.Seed, x, y);
+            //                }
+            //            }
+            //        }
+            //    }
+            //}
 
             //_messageProcessors.Add(new ItemPositionFinder(_dynamicPacker));
             //_messageProcessors.Add(new PlayerPositionTracker());
@@ -659,17 +659,17 @@ namespace IAGrim.UI {
 //    _injector = new InjectionHelper(new BackgroundWorker(), _injectorCallbackDelegate, false, "Grim Dawn", string.Empty, dllname);
 //}
 
-void TransferItem(object ignored, EventArgs args) {
+//void TransferItem(object ignored, EventArgs args) {
 
-            if (InvokeRequired) {
-                Invoke((MethodInvoker)delegate {
-                    _transferController.TransferItem(ignored, args);
-                });
-            }
-            else {
-                _transferController.TransferItem(ignored, args);
-            }
-        }
+//            if (InvokeRequired) {
+//                Invoke((MethodInvoker)delegate {
+//                    _transferController.TransferItem(ignored, args);
+//                });
+//            }
+//            else {
+//                _transferController.TransferItem(ignored, args);
+//            }
+//        }
 
 //private void GlobalSettings_StashStatusChanged(object sender, EventArgs e)
 //{

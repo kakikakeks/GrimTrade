@@ -19,14 +19,14 @@ namespace IAGrim.UI.Popups.ImportExport.Panels {
         private readonly GDTransferFile[] modSelection;
         private readonly IPlayerItemDao playerItemDao;
         private string filename;
-        private readonly StashManager sm;
+        //private readonly StashManager sm;
 
-        public ImportMode(GDTransferFile[] modSelection, IPlayerItemDao playerItemDao, StashManager sm) {
-            InitializeComponent();
-            this.modSelection = modSelection;
-            this.playerItemDao = playerItemDao;
-            this.sm = sm;
-        }
+        //public ImportMode(GDTransferFile[] modSelection, IPlayerItemDao playerItemDao, StashManager sm) {
+        //    InitializeComponent();
+        //    this.modSelection = modSelection;
+        //    this.playerItemDao = playerItemDao;
+        //    this.sm = sm;
+        //}
 
         private void ImportMode_Load(object sender, EventArgs e) {
             this.Dock = DockStyle.Fill;
@@ -82,40 +82,40 @@ namespace IAGrim.UI.Popups.ImportExport.Panels {
             }
         }
 
-        private void buttonImport_Click(object sender, EventArgs e) {
-            if (buttonImport.Enabled) {
-                FileExporter io;
+    //    private void buttonImport_Click(object sender, EventArgs e) {
+    //        if (buttonImport.Enabled) {
+    //            FileExporter io;
 
-                if (radioIAStash.Checked) {
-                    io = new IAFileExporter(filename);
-                }
-                else if (radioGDStash.Checked) {
-                    GDTransferFile settings = cbItemSelection.SelectedItem as GDTransferFile;
-                    if (settings == null) {
-                        io = new GDFileExporter(filename, false, string.Empty);
-                    }
-                    else {
-                        io = new GDFileExporter(filename, settings.IsExpansion1, settings.Mod);
-                    }
-                }
-                else {
-                    io = null;
-                    playerItemDao.Save(sm.EmptyStash(filename));
-                    MessageBox.Show("Items imported", "Items imported!", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    return;
-                }
+    //            if (radioIAStash.Checked) {
+    //                io = new IAFileExporter(filename);
+    //            }
+    //            else if (radioGDStash.Checked) {
+    //                GDTransferFile settings = cbItemSelection.SelectedItem as GDTransferFile;
+    //                if (settings == null) {
+    //                    io = new GDFileExporter(filename, false, string.Empty);
+    //                }
+    //                else {
+    //                    io = new GDFileExporter(filename, settings.IsExpansion1, settings.Mod);
+    //                }
+    //            }
+    //            else {
+    //                io = null;
+    //                //playerItemDao.Save(sm.EmptyStash(filename));
+    //                MessageBox.Show("Items imported", "Items imported!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+    //                return;
+    //            }
 
-                var items = io.Read();
-                playerItemDao.Import(items);
+    //            var items = io.Read();
+    //            playerItemDao.Import(items);
 
-                if (items.Any(m => m.OnlineId.HasValue && m.OnlineId > 0)) {
-                    MessageBox.Show("Items imported\nSome items may have been skipped to avoid duplicating items.", "Items imported!", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-                else {
-                    MessageBox.Show("Items imported\nIf you already had items, you may have gotten duplicates.", "Items imported!", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
+    //            if (items.Any(m => m.OnlineId.HasValue && m.OnlineId > 0)) {
+    //                MessageBox.Show("Items imported\nSome items may have been skipped to avoid duplicating items.", "Items imported!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+    //            }
+    //            else {
+    //                MessageBox.Show("Items imported\nIf you already had items, you may have gotten duplicates.", "Items imported!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+    //            }
 
-            }
-        }
-    }
+    //        }
+    //    }
+   }
 }

@@ -1,4 +1,4 @@
-﻿using EvilsoftCommons.Exceptions;
+﻿//using EvilsoftCommons.Exceptions;
 using IAGrim.Database;
 using IAGrim.Database.DAO.Dto;
 using IAGrim.Database.Dto;
@@ -688,7 +688,7 @@ namespace IAGrim.Database {
                         Logger.Warn("Unable to mark item for deletion, duplication may occur");
                         Logger.Warn(ex.Message);
                         Logger.Warn(ex.StackTrace);
-                        ExceptionReporter.ReportException(ex);
+                        //ExceptionReporter.ReportException(ex);
                     }
                 }
             }

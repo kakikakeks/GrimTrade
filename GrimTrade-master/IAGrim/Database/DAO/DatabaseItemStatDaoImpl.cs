@@ -1,6 +1,6 @@
 ﻿using IAGrim.Database.DAO.Dto;
 using IAGrim.Database.Interfaces;
-using IAGrim.Services.Dto;
+//using IAGrim.Services.Dto;
 using log4net;
 using NHibernate;
 using NHibernate.Criterion;
@@ -10,6 +10,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using IAGrim.Database.DAO.Table;
+using IAGrim.Services.Dto;
 
 namespace IAGrim.Database {
 

@@ -29,7 +29,7 @@ namespace IAGrim.UI.Controller {
         private readonly SearchWindow _searchWindow;
         private readonly DynamicPacker _dynamicPacker;
         private readonly CefBrowserHandler _browser;
-        private readonly StashManager _stashManager;
+        //private readonly StashManager _stashManager;
         private readonly ItemStatService _itemStatService;
 
         public ItemTransferController(
@@ -40,7 +40,7 @@ namespace IAGrim.UI.Controller {
                 SearchWindow searchWindow,
                 DynamicPacker dynamicPacker,
                 IPlayerItemDao playerItemDao,
-                StashManager stashManager,
+                //StashManager stashManager,
                 ItemStatService itemStatService
             ) {
             this._browser = browser;
@@ -50,7 +50,7 @@ namespace IAGrim.UI.Controller {
             this._searchWindow = searchWindow;
             this._dynamicPacker = dynamicPacker;
             this._dao = playerItemDao;
-            this._stashManager = stashManager;
+            //this._stashManager = stashManager;
             this._itemStatService = itemStatService;
         }
 
@@ -99,31 +99,31 @@ namespace IAGrim.UI.Controller {
             public int NumItemsTransferred;
         }
 
-        private TransferStatus TransferItems(string transferFile, List<PlayerItem> items, int maxItemsToTransfer) {
+        //private TransferStatus TransferItems(string transferFile, List<PlayerItem> items, int maxItemsToTransfer) {
         
-            // Remove all items deposited (may or may not be less than the requested amount, if no inventory space is available)
-            string error;
-            int numItemsReceived = (int)items.Sum(item => Math.Max(1, item.StackCount));
-            int numItemsRequested = Math.Min(maxItemsToTransfer, numItemsReceived);
+        //    // Remove all items deposited (may or may not be less than the requested amount, if no inventory space is available)
+        //    string error;
+        //    int numItemsReceived = (int)items.Sum(item => Math.Max(1, item.StackCount));
+        //    int numItemsRequested = Math.Min(maxItemsToTransfer, numItemsReceived);
             
 
-            _itemStatService.ApplyStatsToPlayerItems(items); // For item class? 'IsStackable' maybe?
-            _stashManager.Deposit(transferFile, items, maxItemsToTransfer, out error);
-            _dao.Update(items, true);
+        //    _itemStatService.ApplyStatsToPlayerItems(items); // For item class? 'IsStackable' maybe?
+        //    //_stashManager.Deposit(transferFile, items, maxItemsToTransfer, out error);
+        //    _dao.Update(items, true);
 
 
-            int NumItemsTransferred = numItemsRequested - (numItemsRequested - (int)items.Sum(item => Math.Max(1, item.StackCount)));
+        //    //int NumItemsTransferred = numItemsRequested - (numItemsRequested - (int)items.Sum(item => Math.Max(1, item.StackCount)));
 
-            if (!string.IsNullOrEmpty(error)) {
-                Logger.Warn(error);
-                _browser.ShowMessage(error, "Error");
-            }
+        //    //if (!string.IsNullOrEmpty(error)) {
+        //    //    Logger.Warn(error);
+        //    //    _browser.ShowMessage(error, "Error");
+        //    //}
 
-            return new TransferStatus {
-                NumItemsTransferred = NumItemsTransferred,
-                NumItemsRequested = numItemsRequested
-            };
-        }
+        //    //return new TransferStatus {
+        //    //    NumItemsTransferred = NumItemsTransferred,
+        //    //    NumItemsRequested = numItemsRequested
+        //    //};
+        //}
 
 
         private string GetTransferFile() {
@@ -164,142 +164,142 @@ namespace IAGrim.UI.Controller {
         /// Transfer item request from sub control
         /// MUST BE CALLED ON SQL THREAD
         /// </summary>
-        public void TransferItem(object ignored, EventArgs _args) {
-            StashTransferEventArgs args = _args as StashTransferEventArgs;
-            Logger.Debug($"Item transfer requested, arguments: {args}");
+        //public void TransferItem(object ignored, EventArgs _args) {
+        //    StashTransferEventArgs args = _args as StashTransferEventArgs;
+        //    Logger.Debug($"Item transfer requested, arguments: {args}");
 
-            if (CanTransfer()) {
-                List<PlayerItem> items = GetItemsForTransfer(args);
+        //    if (CanTransfer()) {
+        //        List<PlayerItem> items = GetItemsForTransfer(args);
 
-                if (items?.Count > 0) {
-                    string file = GetTransferFile();
-                    if (string.IsNullOrEmpty(file)) {
-                        Logger.Warn("Could not find transfer file, transfer aborted.");
-                        return;
-                    }
+        //        if (items?.Count > 0) {
+        //            string file = GetTransferFile();
+        //            if (string.IsNullOrEmpty(file)) {
+        //                Logger.Warn("Could not find transfer file, transfer aborted.");
+        //                return;
+        //            }
 
-                    Logger.Debug($"Found {items.Count} items to transfer");
-                    var result = TransferItems(file, items, (int) args.Count);
+        //            Logger.Debug($"Found {items.Count} items to transfer");
+        //            var result = TransferItems(file, items, (int) args.Count);
 
 
-                    Logger.InfoFormat("Successfully deposited {0} out of {1} items", result.NumItemsTransferred,
-                        result.NumItemsRequested);
-                    try {
-                        var message = string.Format(GlobalSettings.Language.GetTag("iatag_stash3_success"),
-                            result.NumItemsTransferred, result.NumItemsRequested);
-                        _setFeedback(message);
-                        _browser.ShowMessage(message, "Success");
-                    }
-                    catch (FormatException ex) {
-                        Logger.Warn(ex.Message);
-                        Logger.Warn(ex.StackTrace);
-                        Logger.Warn("Language pack error, iatag_stash3_success is of invalid format.");
-                    }
-                    if (result.NumItemsTransferred == 0) {
-                        _setTooltip(GlobalSettings.Language.GetTag("iatag_stash3_failure"));
-                        _browser.ShowMessage(GlobalSettings.Language.GetTag("iatag_stash3_failure"), "Warning");
-                    }
+        //            Logger.InfoFormat("Successfully deposited {0} out of {1} items", result.NumItemsTransferred,
+        //                result.NumItemsRequested);
+        //            try {
+        //                var message = string.Format(GlobalSettings.Language.GetTag("iatag_stash3_success"),
+        //                    result.NumItemsTransferred, result.NumItemsRequested);
+        //                _setFeedback(message);
+        //                _browser.ShowMessage(message, "Success");
+        //            }
+        //            catch (FormatException ex) {
+        //                Logger.Warn(ex.Message);
+        //                Logger.Warn(ex.StackTrace);
+        //                Logger.Warn("Language pack error, iatag_stash3_success is of invalid format.");
+        //            }
+        //            if (result.NumItemsTransferred == 0) {
+        //                _setTooltip(GlobalSettings.Language.GetTag("iatag_stash3_failure"));
+        //                _browser.ShowMessage(GlobalSettings.Language.GetTag("iatag_stash3_failure"), "Warning");
+        //            }
 
-                    // Lets do this last, to make sure feedback reaches the user as fast as possible
-                    _searchWindow.UpdateListview();
+        //            // Lets do this last, to make sure feedback reaches the user as fast as possible
+        //            _searchWindow.UpdateListview();
 
-                }
-                else {
-                    Logger.Warn("Could not find any items for the requested transfer");
-                }
-            }
+        //        }
+        //        else {
+        //            Logger.Warn("Could not find any items for the requested transfer");
+        //        }
+        //    }
 
-            else if (GlobalSettings.StashStatus == StashAvailability.OPEN) {
-                // "InstaTransfer" is an experimental feature
-                if (Properties.Settings.Default.InstaTransfer) { // disabled for now
+        //    else if (GlobalSettings.StashStatus == StashAvailability.OPEN) {
+        //        // "InstaTransfer" is an experimental feature
+        //        if (Properties.Settings.Default.InstaTransfer) { // disabled for now
 
                     
-                    List<PlayerItem> items = GetItemsForTransfer(args);
-                    int numDepositedItems = 0;
-                    int numItemsToTransfer = items?.Count ?? 0;
+        //            List<PlayerItem> items = GetItemsForTransfer(args);
+        //            int numDepositedItems = 0;
+        //            int numItemsToTransfer = items?.Count ?? 0;
 
-                    if (items == null) {
-                        Logger.Info("Item previously deposited (ghost item)");
-                        _browser.ShowMessage("Item previously deposited (ghost item)", "Warning");
-                        _searchWindow.UpdateListviewDelayed();
+        //            if (items == null) {
+        //                Logger.Info("Item previously deposited (ghost item)");
+        //                _browser.ShowMessage("Item previously deposited (ghost item)", "Warning");
+        //                _searchWindow.UpdateListviewDelayed();
 
-                    }
-                    else {
-                        foreach (var item in items) {
-                            if (TransferToOpenStash(item)) {
-                                _dao.Remove(item);
-                                numDepositedItems++;
-                            }
-                        }
+        //            }
+        //            else {
+        //                foreach (var item in items) {
+        //                    if (TransferToOpenStash(item)) {
+        //                        _dao.Remove(item);
+        //                        numDepositedItems++;
+        //                    }
+        //                }
 
-                        var message = string.Format(GlobalSettings.Language.GetTag("iatag_stash3_success"), numDepositedItems, numItemsToTransfer);
-                        _setFeedback(message);
-                        _browser.ShowMessage(message, "Success");
+        //                var message = string.Format(GlobalSettings.Language.GetTag("iatag_stash3_success"), numDepositedItems, numItemsToTransfer);
+        //                _setFeedback(message);
+        //                _browser.ShowMessage(message, "Success");
 
-                        Logger.InfoFormat("Successfully deposited {0} out of {1} items", numDepositedItems, numItemsToTransfer);
-                        if (numDepositedItems > 0) {
-                            _searchWindow.UpdateListviewDelayed();
-                        }
+        //                Logger.InfoFormat("Successfully deposited {0} out of {1} items", numDepositedItems, numItemsToTransfer);
+        //                if (numDepositedItems > 0) {
+        //                    _searchWindow.UpdateListviewDelayed();
+        //                }
 
-                    }
-                }
-
-
-                else {
-                    var message = GlobalSettings.Language.GetTag("iatag_deposit_stash_open");
-                    _setFeedback(message);
-                    _setTooltip(message);
-                    _browser.ShowMessage(message, "Warning");
-                }
-            }
-            else if (GlobalSettings.StashStatus == StashAvailability.SORTED) {
-                _setFeedback(GlobalSettings.Language.GetTag("iatag_deposit_stash_sorted"));
-                _browser.ShowMessage(GlobalSettings.Language.GetTag("iatag_deposit_stash_sorted"), "Warning");
-            }
-
-            else if (GlobalSettings.StashStatus == StashAvailability.UNKNOWN) {
-                _setFeedback(GlobalSettings.Language.GetTag("iatag_deposit_stash_unknown_feedback"));
-                _setTooltip(GlobalSettings.Language.GetTag("iatag_deposit_stash_unknown_tooltip"));
-                _browser.ShowMessage(GlobalSettings.Language.GetTag("iatag_deposit_stash_unknown_feedback"), "Warning");
-            }
-        }
+        //            }
+        //        }
 
 
+        //        else {
+        //            var message = GlobalSettings.Language.GetTag("iatag_deposit_stash_open");
+        //            _setFeedback(message);
+        //            _setTooltip(message);
+        //            _browser.ShowMessage(message, "Warning");
+        //        }
+        //    }
+        //    else if (GlobalSettings.StashStatus == StashAvailability.SORTED) {
+        //        _setFeedback(GlobalSettings.Language.GetTag("iatag_deposit_stash_sorted"));
+        //        _browser.ShowMessage(GlobalSettings.Language.GetTag("iatag_deposit_stash_sorted"), "Warning");
+        //    }
 
-        public bool TransferToOpenStash(PlayerItem pi) {
-            List<byte> buffer = ItemInjectCallbackProcessor.Serialize(pi);
-            var stashTab = Properties.Settings.Default.StashToDepositTo;
-            if (stashTab == 0) {
-                // Find real tab.. Related to hotfix v1.0.4.0
-                stashTab = StashManager.GetNumStashPages(GetTransferFile());
-            }
-
-            var position = _dynamicPacker.Insert(pi.BaseRecord, (uint)pi.Seed);
-            if (position == null) {
-                Logger.Warn("Item insert canceled, no valid position found.");
-                _setFeedback(GlobalSettings.Language.GetTag("iatag_deposit_stash_full"));
-                return false;
-            }
-            buffer.InsertRange(0, BitConverter.GetBytes(position.X * 32));
-            buffer.InsertRange(4, BitConverter.GetBytes(position.Y * 32));
-            buffer.InsertRange(0, BitConverter.GetBytes(stashTab));
+        //    else if (GlobalSettings.StashStatus == StashAvailability.UNKNOWN) {
+        //        _setFeedback(GlobalSettings.Language.GetTag("iatag_deposit_stash_unknown_feedback"));
+        //        _setTooltip(GlobalSettings.Language.GetTag("iatag_deposit_stash_unknown_tooltip"));
+        //        _browser.ShowMessage(GlobalSettings.Language.GetTag("iatag_deposit_stash_unknown_feedback"), "Warning");
+        //    }
+        //}
 
 
-            using (NamedPipeClientStream pipeStream = new NamedPipeClientStream(".", "gdiahook", PipeDirection.InOut, PipeOptions.Asynchronous)) {
-                // The connect function will indefinitely wait for the pipe to become available
-                // If that is not acceptable specify a maximum waiting time (in ms)
-                try {
-                    pipeStream.Connect(250);
-                } catch (TimeoutException) {
-                    return false;
-                }
 
-                pipeStream.Write(buffer.ToArray(), 0, buffer.Count);
-                Logger.Debug("Wrote item to pipe");
-                _setFeedback(GlobalSettings.Language.GetTag("iatag_deposit_pipe_success"));
-            }
+        //public bool TransferToOpenStash(PlayerItem pi) {
+        //    List<byte> buffer = ItemInjectCallbackProcessor.Serialize(pi);
+        //    var stashTab = Properties.Settings.Default.StashToDepositTo;
+        //    if (stashTab == 0) {
+        //        // Find real tab.. Related to hotfix v1.0.4.0
+        //        //stashTab = StashManager.GetNumStashPages(GetTransferFile());
+        //    }
 
-            return true;
-        }
+        //    var position = _dynamicPacker.Insert(pi.BaseRecord, (uint)pi.Seed);
+        //    if (position == null) {
+        //        Logger.Warn("Item insert canceled, no valid position found.");
+        //        _setFeedback(GlobalSettings.Language.GetTag("iatag_deposit_stash_full"));
+        //        return false;
+        //    }
+        //    buffer.InsertRange(0, BitConverter.GetBytes(position.X * 32));
+        //    buffer.InsertRange(4, BitConverter.GetBytes(position.Y * 32));
+        //    buffer.InsertRange(0, BitConverter.GetBytes(stashTab));
+
+
+        //    using (NamedPipeClientStream pipeStream = new NamedPipeClientStream(".", "gdiahook", PipeDirection.InOut, PipeOptions.Asynchronous)) {
+        //        // The connect function will indefinitely wait for the pipe to become available
+        //        // If that is not acceptable specify a maximum waiting time (in ms)
+        //        try {
+        //            pipeStream.Connect(250);
+        //        } catch (TimeoutException) {
+        //            return false;
+        //        }
+
+        //        pipeStream.Write(buffer.ToArray(), 0, buffer.Count);
+        //        Logger.Debug("Wrote item to pipe");
+        //        _setFeedback(GlobalSettings.Language.GetTag("iatag_deposit_pipe_success"));
+        //    }
+
+        //    return true;
+        //}
     }
 }

@@ -1,0 +1,16 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\GrimTrade-master",
+    "\\GrimTrade-master\\IAGrim",
+    "\\GrimTrade-master\\IAGrim\\Database",
+    "\\GrimTrade-master\\IAGrim\\Database\\DAO",
+    "\\GrimTrade-master\\IAGrim\\Services",
+    "\\GrimTrade-master\\IAGrim\\Services\\Dto",
+    "\\GrimTrade-master\\IAGrim\\UI",
+    "\\GrimTrade-master\\IAGrim\\UI\\Popups",
+    "\\GrimTrade-master\\IAGrim\\UI\\Popups\\ImportExport"
+  ],
+  "SelectedNode": "\\GrimTrade-master\\IAGrim\\UI\\Popups\\ImportExport\\ImportExportContainer.Designer.cs",
+  "PreviewInSolutionExplorer": false
+}

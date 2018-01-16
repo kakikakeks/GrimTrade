@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text.RegularExpressions;
 using DataAccess;
 using EvilsoftCommons;
-using EvilsoftCommons.Exceptions;
+//using EvilsoftCommons.Exceptions;
 using IAGrim.Database;
 using IAGrim.Database.Interfaces;
 using IAGrim.Parser.Arc;
@@ -302,7 +302,7 @@ namespace IAGrim.Parsers.Arz {
                 foreach (var inner in ex.InnerExceptions) {
                     Logger.Warn(inner.Message);
                     Logger.Warn(inner.StackTrace);
-                    ExceptionReporter.ReportException(inner, "[AggregateException]", true);
+                    //ExceptionReporter.ReportException(inner, "[AggregateException]", true);
 
                     if (inner.InnerException != null) {
                         Logger.Warn(inner.InnerException.Message);

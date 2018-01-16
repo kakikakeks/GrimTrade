@@ -1,4 +1,4 @@
-﻿using EvilsoftCommons.Exceptions;
+﻿//using EvilsoftCommons.Exceptions;
 using EvilsoftCommons.Misc;
 using IAGrim.UI;
 using IAGrim.Utilities;
@@ -76,7 +76,7 @@ namespace IAGrim.Parsers.Arz {
             catch (Exception ex) {
                 Logger.Warn(ex.Message);
                 Logger.Warn(ex.StackTrace);
-                ExceptionReporter.ReportException(ex);
+                //ExceptionReporter.ReportException(ex);
                 throw;
             }
             

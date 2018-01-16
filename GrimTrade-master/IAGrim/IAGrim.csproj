@@ -229,6 +229,27 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="Services\Crafting\CostCalculationService.cs" />
+    <Compile Include="Services\Crafting\dto\ComponentCost.cs" />
+    <Compile Include="Services\Crafting\dto\ComponentListEntry.cs" />
+    <Compile Include="Services\Crafting\dto\CraftableRecipes.cs" />
+    <Compile Include="Services\Crafting\RecipeService.cs" />
+    <Compile Include="Services\Dto\DBSTatRow.cs" />
+    <Compile Include="Services\GrimStateTracker.cs" />
+    <Compile Include="Services\ItemPaginatorService.cs" />
+    <Compile Include="Services\ItemStatService.cs" />
+    <Compile Include="Services\MessageProcessor\CloudDetectorProcessor.cs" />
+    <Compile Include="Services\MessageProcessor\DebugMessageProcessor.cs" />
+    <Compile Include="Services\MessageProcessor\GenericErrorHandler.cs" />
+    <Compile Include="Services\MessageProcessor\IMessageProcessor.cs" />
+    <Compile Include="Services\MessageProcessor\ItemInjectCallbackProcessor.cs" />
+    <Compile Include="Services\MessageProcessor\ItemPositionFinder.cs" />
+    <Compile Include="Services\MessageProcessor\ItemReceivedProcessor.cs" />
+    <Compile Include="Services\MessageProcessor\ItemSpawnedProcessor.cs" />
+    <Compile Include="Services\MessageProcessor\LogMessageProcessor.cs" />
+    <Compile Include="Services\MessageProcessor\ModChangeProcessor.cs" />
+    <Compile Include="Services\MessageProcessor\PlayerPositionTracker.cs" />
+    <Compile Include="Services\MessageProcessor\StashStatusHandler.cs" />
     <Compile Include="Theme\ComboBoxItem.cs" />
     <Compile Include="Theme\ComboBoxItemQuality.cs" />
     <Compile Include="Theme\Firefox\FirefoxCheckBox.cs">
@@ -251,9 +272,7 @@
     <Compile Include="UI\Popups\BackupNagScreen.Designer.cs">
       <DependentUpon>BackupNagScreen.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\Popups\ImportExport\ImportExportContainer.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="UI\Popups\ImportExport\ImportExportContainer.cs" />
     <Compile Include="UI\Popups\ImportExport\ImportExportContainer.Designer.cs">
       <DependentUpon>ImportExportContainer.cs</DependentUpon>
     </Compile>

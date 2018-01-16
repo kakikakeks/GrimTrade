@@ -1,4 +1,4 @@
-﻿using EvilsoftCommons.Exceptions;
+﻿//using EvilsoftCommons.Exceptions;
 using IAGrim.Database;
 using IAGrim.Database.Interfaces;
 using IAGrim.Utilities;

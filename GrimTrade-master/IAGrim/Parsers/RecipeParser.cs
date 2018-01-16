@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using IAGrim.Utilities;
 using NHibernate.Criterion;
-using EvilsoftCommons.Exceptions;
+//using EvilsoftCommons.Exceptions;
 using EvilsoftCommons;
 using IAGrim.Database.Interfaces;
 
@@ -158,12 +158,12 @@ namespace IAGrim.Parsers {
                 Logger.Warn(ex.Message);
                 Logger.Warn(ex.StackTrace);
                     
-                ExceptionReporter.ReportException(ex, "UpdateFormulas");
+                //ExceptionReporter.ReportException(ex, "UpdateFormulas");
             }
             catch (Exception ex) {
                 Logger.Warn(ex.Message);
                 Logger.Warn(ex.StackTrace);
-                ExceptionReporter.ReportException(ex, "UpdateFormulas");
+                //ExceptionReporter.ReportException(ex, "UpdateFormulas");
             }
             
         }

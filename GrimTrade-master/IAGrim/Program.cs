@@ -1,4 +1,4 @@
-﻿using EvilsoftCommons.Exceptions;
+﻿//using EvilsoftCommons.Exceptions;
 using EvilsoftCommons.SingleInstance;
 using IAGrim.Database;
 using IAGrim.Database.Interfaces;
@@ -24,12 +24,12 @@ using System.Threading;
 using System.Windows.Forms;
 using DataAccess;
 using EvilsoftCommons;
-using EvilsoftCommons.Exceptions.UUIDGenerator;
+//using EvilsoftCommons.Exceptions.UUIDGenerator;
 using Gameloop.Vdf;
 using IAGrim.BuddyShare;
 using IAGrim.Database.DAO;
 using IAGrim.Parser.Arc;
-using IAGrim.Services.Crafting;
+//using IAGrim.Services.Crafting;
 using IAGrim.UI.Popups;
 using IAGrim.Utilities.HelperClasses;
 
@@ -52,7 +52,7 @@ namespace IAGrim {
             xl.Add(2);
             var t = xl.Take(50).ToList();
 
-            int x = 9;
+            //int x = 9;
             /*
             var json = "hello_world";
             using (var stream = new MemoryStream()) {
@@ -123,13 +123,13 @@ namespace IAGrim {
         private static void LoadUuid(IDatabaseSettingDao dao) {
             string uuid = dao.GetUuid();
             if (string.IsNullOrEmpty(uuid)) {
-                UuidGenerator g = Guid.NewGuid();
-                uuid = g.ToString().Replace("-", "");
+                //UuidGenerator g = Guid.NewGuid();
+                //uuid = g.ToString().Replace("-", "");
                 dao.SetUuid(uuid);
             }
 
             GlobalSettings.Uuid = uuid;
-            ExceptionReporter.Uuid = uuid;
+            //ExceptionReporter.Uuid = uuid;
             Logger.InfoFormat("Your user id is {0}, use this for any bug reports", GlobalSettings.Uuid);
         }
 
@@ -140,15 +140,15 @@ namespace IAGrim {
                 Thread.CurrentThread.Name = "Main";
 
             Logger.Info("Starting IA:GD..");
-            ExceptionReporter.UrlCrashreport = "http://ribbs.dreamcrash.org/iagd/crashreport.php"; 
-            ExceptionReporter.UrlStats = "http://ribbs.dreamcrash.org/iagd/stats.php";
+            //ExceptionReporter.UrlCrashreport = "http://ribbs.dreamcrash.org/iagd/crashreport.php"; 
+            //ExceptionReporter.UrlStats = "http://ribbs.dreamcrash.org/iagd/stats.php";
 #if !DEBUG
             ExceptionReporter.LogExceptions = true;
 #endif
 
             Logger.Info("Starting exception monitor for bug reports.."); // Phrased this way since people took it as a 'bad' thing.
             Logger.Debug("Crash reports can be seen at http://ribbs.dreamcrash.org/iagd/logs.html");
-            ExceptionReporter.EnableLogUnhandledOnThread();
+            //ExceptionReporter.EnableLogUnhandledOnThread();
 
 
             var version = Assembly.GetExecutingAssembly().GetName().Version;
@@ -219,7 +219,7 @@ namespace IAGrim {
             } catch (Exception ex) {
                 Logger.Warn(ex.Message);
                 Logger.Warn(ex.StackTrace);
-                ExceptionReporter.ReportException(ex);
+                //ExceptionReporter.ReportException(ex);
             }
 
         }
@@ -240,7 +240,7 @@ namespace IAGrim {
                     _mw.Invoke(restoreWindow);
                 }
             } catch (Exception ex) {
-                ExceptionReporter.ReportException(ex, "singleInstance_ArgumentsReceived");
+                //ExceptionReporter.ReportException(ex, "singleInstance_ArgumentsReceived");
             }
         }
 

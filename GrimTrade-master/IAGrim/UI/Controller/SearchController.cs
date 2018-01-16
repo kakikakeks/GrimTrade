@@ -27,9 +27,9 @@ namespace IAGrim.UI.Controller {
         private const int TakeSize = 100;
         private readonly ItemPaginatorService _itemPaginatorService;
         private readonly RecipeService _recipeService;
-        private readonly CostCalculationService _costCalculationService;
+        //private readonly CostCalculationService _costCalculationService;
         private string _previousMod = string.Empty;
-        private readonly StashManager _stashManager;
+        //private readonly StashManager _stashManager;
 
         public CefBrowserHandler Browser;
 
@@ -43,17 +43,18 @@ namespace IAGrim.UI.Controller {
             IPlayerItemDao playerItemDao, 
             IDatabaseItemStatDao databaseItemStatDao,
             IItemSkillDao itemSkillDao,
-            IBuddyItemDao buddyItemDao,
-            StashManager stashManager
+            IBuddyItemDao buddyItemDao
+            //StashManager stashManager
         ) {
             this._dbItemDao = databaseItemDao;
             this._playerItemDao = playerItemDao;
             this._itemStatService = new ItemStatService(databaseItemStatDao, itemSkillDao);
             this._itemPaginatorService = new ItemPaginatorService(TakeSize);
             this._recipeService = new RecipeService(databaseItemDao);
-            this._costCalculationService = new CostCalculationService(playerItemDao, stashManager);
-            this._buddyItemDao = buddyItemDao;
-            this._stashManager = stashManager;
+            //this._costCalculationService = new CostCalculationService(playerItemDao, stashManager);
+            this._buddyItemDao = buddyItemDao
+            //this._stashManager = stashManager
+                ;
 
 
             // Just make sure it writes .css/.html files before displaying anything to the browser
@@ -65,8 +66,8 @@ namespace IAGrim.UI.Controller {
             JsBind.OnRequestRecipeIngredients += (sender, args) => {
                 var recipeArgument = args as RequestRecipeArgument;
                 var ingredients = _recipeService.GetRecipeIngredients(recipeArgument?.RecipeRecord);
-                _costCalculationService.Populate(ingredients);
-                _costCalculationService.SetMod(_previousMod);
+                //_costCalculationService.Populate(ingredients);
+                //_costCalculationService.SetMod(_previousMod);
 
                 _previousCallback = recipeArgument?.Callback;
                 _previousRecipe = recipeArgument?.RecipeRecord;
@@ -75,7 +76,7 @@ namespace IAGrim.UI.Controller {
 
 
             // Update the recipe when the stash has changed
-            stashManager.StashUpdated += StashManagerOnStashUpdated;
+            //stashManager.StashUpdated += StashManagerOnStashUpdated;
 
 
             // Return the list of recipes
@@ -89,15 +90,15 @@ namespace IAGrim.UI.Controller {
         private void StashManagerOnStashUpdated(object o, EventArgs eventArgs) {
             if (!string.IsNullOrEmpty(_previousRecipe)) {
                 var ingredients = _recipeService.GetRecipeIngredients(_previousRecipe);
-                _costCalculationService.Populate(ingredients);
-                _costCalculationService.SetMod(_previousMod);
+                //_costCalculationService.Populate(ingredients);
+                //_costCalculationService.SetMod(_previousMod);
                 Browser.JsCallback(_previousCallback, JsBind.Serialize(ingredients));
             }
         }
 
-        ~SearchController() {
-            _stashManager.StashUpdated -= StashManagerOnStashUpdated;
-        }
+        //~SearchController() {
+        //    _stashManager.StashUpdated -= StashManagerOnStashUpdated;
+        //}
 
 
         private void JsBind_OnRequestItems(object sender, System.EventArgs e) {

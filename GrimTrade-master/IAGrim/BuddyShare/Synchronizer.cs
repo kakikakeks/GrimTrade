@@ -12,7 +12,7 @@ using log4net;
 using IAGrim.Utilities;
 using Newtonsoft.Json.Linq;
 using Newtonsoft.Json;
-using EvilsoftCommons.Exceptions;
+//using EvilsoftCommons.Exceptions;
 using IAGrim.BuddyShare.dto;
 using log4net.Util;
 

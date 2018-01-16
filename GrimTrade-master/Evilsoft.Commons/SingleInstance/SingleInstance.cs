@@ -123,7 +123,7 @@ namespace EvilsoftCommons.SingleInstance {
                     }
                     catch (Exception ex) {
                         logger.Warn(ex.Message);
-                        EvilsoftCommons.Exceptions.ExceptionReporter.ReportException(ex, "<- ReleaseMutex");
+                        //EvilsoftCommons.Exceptions.ExceptionReporter.ReportException(ex, "<- ReleaseMutex");
                     }
                 disposed = true;
             }

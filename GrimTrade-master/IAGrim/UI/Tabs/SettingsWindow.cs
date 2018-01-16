@@ -29,7 +29,7 @@ namespace IAGrim.UI {
         private readonly ArzParser _parser;
         private readonly IPlayerItemDao _playerItemDao;
         private readonly GDTransferFile[] _modFilter;
-        private readonly StashManager _stashManager;
+        //private readonly StashManager _stashManager;
 
         public SettingsWindow(
             TooltipHelper tooltipHelper, 
@@ -38,8 +38,8 @@ namespace IAGrim.UI {
             IDatabaseItemDao itemDao,
             IPlayerItemDao playerItemDao,
             ArzParser parser,
-            GDTransferFile[] modFilter,
-            StashManager stashManager
+            GDTransferFile[] modFilter
+            //StashManager stashManager
         ) {            
             InitializeComponent();
             this._tooltipHelper = tooltipHelper;
@@ -49,7 +49,7 @@ namespace IAGrim.UI {
             this._playerItemDao = playerItemDao;
             this._parser = parser;
             this._modFilter = modFilter;
-            this._stashManager = stashManager;
+            //this._stashManager = stashManager;
 
             _controller.BindCheckbox(cbMinimizeToTray);
 
@@ -178,7 +178,7 @@ namespace IAGrim.UI {
         }
 
         private void buttonImportExport_Click(object sender, EventArgs e) {
-            new Popups.ImportExport.ImportExportContainer(_modFilter, _playerItemDao, _stashManager).ShowDialog();
+            //new Popups.ImportExport.ImportExportContainer(_modFilter, _playerItemDao, _stashManager).ShowDialog();
         }
 
         private void cbDisplaySkills_CheckedChanged(object sender, EventArgs e) {
@@ -186,7 +186,7 @@ namespace IAGrim.UI {
         }
 
         private void buttonAdvancedSettings_Click(object sender, EventArgs e) {
-            new StashTabPicker(_stashManager.NumStashTabs).ShowDialog();
+            //new StashTabPicker(_stashManager.NumStashTabs).ShowDialog();
         }
 
         private void linkSourceCode_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) {

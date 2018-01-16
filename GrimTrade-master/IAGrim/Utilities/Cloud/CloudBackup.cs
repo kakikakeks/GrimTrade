@@ -1,5 +1,5 @@
 ﻿using EvilsoftCommons.Cloud;
-using EvilsoftCommons.Exceptions;
+//using EvilsoftCommons.Exceptions;
 using IAGrim.Backup.FileWriter;
 using IAGrim.Database;
 using IAGrim.Database.Interfaces;
@@ -82,7 +82,7 @@ namespace IAGrim.Utilities.Cloud {
             } catch (Exception ex) {
                 Logger.Warn(ex.Message);
                 Logger.Warn(ex.StackTrace);
-                ExceptionReporter.ReportException(ex, "Creating a backup");
+                //ExceptionReporter.ReportException(ex, "Creating a backup");
                 return false;
             }
 

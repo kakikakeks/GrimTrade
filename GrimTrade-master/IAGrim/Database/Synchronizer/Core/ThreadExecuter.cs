@@ -1,4 +1,4 @@
-﻿using EvilsoftCommons.Exceptions;
+﻿//using EvilsoftCommons.Exceptions;
 using log4net;
 using System;
 using System.Collections.Concurrent;
@@ -31,7 +31,7 @@ namespace IAGrim.Database.Synchronizer {
             if (Thread.CurrentThread.Name == null)
                 Thread.CurrentThread.Name = "ThreadExecuter";
 
-            ExceptionReporter.EnableLogUnhandledOnThread();
+            //ExceptionReporter.EnableLogUnhandledOnThread();
 
             while (!_isCancelled) {
                 QueuedExecution elem;
