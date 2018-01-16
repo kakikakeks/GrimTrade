@@ -1,4 +1,3 @@
-# Grim Dawn Item Assistant
+# GrimTrade
 
-
-For a binary download, see https://www.nexusmods.com/grimdawn/mods/43/
+Code Based on the Grim Dawn Item Assistant https://github.com/marius00/iagd
