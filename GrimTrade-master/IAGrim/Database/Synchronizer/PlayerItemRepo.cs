@@ -87,7 +87,7 @@ namespace IAGrim.Database.Synchronizer {
         }
 
 
-        public void Remove(PlayerItem obj) {
+        public new void Remove(PlayerItem obj) {
             ThreadExecuter.Execute(
                 () => repo.Remove(obj)
             );
@@ -99,13 +99,13 @@ namespace IAGrim.Database.Synchronizer {
             );
         }
 
-        public void Save(IEnumerable<PlayerItem> items) {
+        public new void Save(IEnumerable<PlayerItem> items) {
             ThreadExecuter.Execute(
                 () => repo.Save(items)
             );
         }
 
-        public void Save(PlayerItem item) {
+        public new void Save(PlayerItem item) {
             ThreadExecuter.Execute(
                 () => repo.Save(item)
             );

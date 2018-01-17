@@ -48,14 +48,14 @@
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.TabTrade = new System.Windows.Forms.TabControl();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.textbox_received_message = new System.Windows.Forms.TextBox();
+            this.button_trade_edit = new System.Windows.Forms.Button();
+            this.button_trade_accept = new System.Windows.Forms.Button();
+            this.button_trade_sent = new System.Windows.Forms.Button();
+            this.textbox_sent_message = new System.Windows.Forms.TextBox();
+            this.tableLayoutPanelTrade = new System.Windows.Forms.TableLayoutPanel();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.tabPage4 = new System.Windows.Forms.TabPage();
-            this.tableLayoutPanelTrade = new System.Windows.Forms.TableLayoutPanel();
-            this.textbox_sent_message = new System.Windows.Forms.TextBox();
-            this.button_trade_sent = new System.Windows.Forms.Button();
-            this.button_trade_accept = new System.Windows.Forms.Button();
-            this.button_trade_edit = new System.Windows.Forms.Button();
-            this.textbox_received_message = new System.Windows.Forms.TextBox();
             this.statusStrip.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPageItems.SuspendLayout();
@@ -150,7 +150,7 @@
             this.tabPageSettings.Location = new System.Drawing.Point(4, 22);
             this.tabPageSettings.Name = "tabPageSettings";
             this.tabPageSettings.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageSettings.Size = new System.Drawing.Size(929, 560);
+            this.tabPageSettings.Size = new System.Drawing.Size(699, 561);
             this.tabPageSettings.TabIndex = 1;
             this.tabPageSettings.Tag = "iatag_ui_tab_settings";
             this.tabPageSettings.Text = "Settings";
@@ -172,7 +172,7 @@
             this.tabPageMods.Location = new System.Drawing.Point(4, 22);
             this.tabPageMods.Name = "tabPageMods";
             this.tabPageMods.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageMods.Size = new System.Drawing.Size(929, 560);
+            this.tabPageMods.Size = new System.Drawing.Size(699, 561);
             this.tabPageMods.TabIndex = 4;
             this.tabPageMods.Tag = "iatag_ui_tab_mods";
             this.tabPageMods.Text = "Database/Mods";
@@ -216,7 +216,7 @@
             this.tabPageBuddy.Controls.Add(this.buddyPanel);
             this.tabPageBuddy.Location = new System.Drawing.Point(4, 22);
             this.tabPageBuddy.Name = "tabPageBuddy";
-            this.tabPageBuddy.Size = new System.Drawing.Size(929, 560);
+            this.tabPageBuddy.Size = new System.Drawing.Size(699, 561);
             this.tabPageBuddy.TabIndex = 2;
             this.tabPageBuddy.Tag = "iatag_ui_tab_buddy";
             this.tabPageBuddy.Text = "Buddy";
@@ -237,7 +237,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(929, 560);
+            this.tabPage1.Size = new System.Drawing.Size(699, 561);
             this.tabPage1.TabIndex = 6;
             this.tabPage1.Tag = "iatag_ui_tab_log";
             this.tabPage1.Text = "Log";
@@ -329,6 +329,67 @@
             this.tabPage2.TabIndex = 0;
             this.tabPage2.Text = "Trade User 1";
             // 
+            // textbox_received_message
+            // 
+            this.textbox_received_message.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.textbox_received_message.Location = new System.Drawing.Point(2, 2);
+            this.textbox_received_message.MaxLength = 100;
+            this.textbox_received_message.Multiline = true;
+            this.textbox_received_message.Name = "textbox_received_message";
+            this.textbox_received_message.Size = new System.Drawing.Size(653, 25);
+            this.textbox_received_message.TabIndex = 5;
+            this.textbox_received_message.Text = "Received Message";
+            // 
+            // button_trade_edit
+            // 
+            this.button_trade_edit.Location = new System.Drawing.Point(433, 522);
+            this.button_trade_edit.Name = "button_trade_edit";
+            this.button_trade_edit.Size = new System.Drawing.Size(92, 33);
+            this.button_trade_edit.TabIndex = 4;
+            this.button_trade_edit.Text = "Edit";
+            this.button_trade_edit.UseVisualStyleBackColor = true;
+            // 
+            // button_trade_accept
+            // 
+            this.button_trade_accept.Location = new System.Drawing.Point(559, 524);
+            this.button_trade_accept.Name = "button_trade_accept";
+            this.button_trade_accept.Size = new System.Drawing.Size(92, 33);
+            this.button_trade_accept.TabIndex = 3;
+            this.button_trade_accept.Text = "Accept";
+            this.button_trade_accept.UseVisualStyleBackColor = true;
+            // 
+            // button_trade_sent
+            // 
+            this.button_trade_sent.Location = new System.Drawing.Point(335, 522);
+            this.button_trade_sent.Name = "button_trade_sent";
+            this.button_trade_sent.Size = new System.Drawing.Size(92, 33);
+            this.button_trade_sent.TabIndex = 2;
+            this.button_trade_sent.Text = "Send";
+            this.button_trade_sent.UseVisualStyleBackColor = true;
+            // 
+            // textbox_sent_message
+            // 
+            this.textbox_sent_message.BackColor = System.Drawing.Color.Moccasin;
+            this.textbox_sent_message.Location = new System.Drawing.Point(0, 522);
+            this.textbox_sent_message.MaxLength = 100;
+            this.textbox_sent_message.Multiline = true;
+            this.textbox_sent_message.Name = "textbox_sent_message";
+            this.textbox_sent_message.Size = new System.Drawing.Size(328, 33);
+            this.textbox_sent_message.TabIndex = 1;
+            this.textbox_sent_message.Text = "Sent Message";
+            // 
+            // tableLayoutPanelTrade
+            // 
+            this.tableLayoutPanelTrade.ColumnCount = 2;
+            this.tableLayoutPanelTrade.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanelTrade.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanelTrade.Location = new System.Drawing.Point(0, 32);
+            this.tableLayoutPanelTrade.Name = "tableLayoutPanelTrade";
+            this.tableLayoutPanelTrade.RowCount = 1;
+            this.tableLayoutPanelTrade.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanelTrade.Size = new System.Drawing.Size(659, 486);
+            this.tableLayoutPanelTrade.TabIndex = 0;
+            // 
             // tabPage3
             // 
             this.tabPage3.BackColor = System.Drawing.Color.Transparent;
@@ -348,67 +409,6 @@
             this.tabPage4.Size = new System.Drawing.Size(659, 561);
             this.tabPage4.TabIndex = 2;
             this.tabPage4.Text = "Trade User3";
-            // 
-            // tableLayoutPanelTrade
-            // 
-            this.tableLayoutPanelTrade.ColumnCount = 2;
-            this.tableLayoutPanelTrade.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanelTrade.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanelTrade.Location = new System.Drawing.Point(0, 32);
-            this.tableLayoutPanelTrade.Name = "tableLayoutPanelTrade";
-            this.tableLayoutPanelTrade.RowCount = 1;
-            this.tableLayoutPanelTrade.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanelTrade.Size = new System.Drawing.Size(659, 486);
-            this.tableLayoutPanelTrade.TabIndex = 0;
-            // 
-            // textbox_sent_message
-            // 
-            this.textbox_sent_message.BackColor = System.Drawing.Color.Moccasin;
-            this.textbox_sent_message.Location = new System.Drawing.Point(0, 522);
-            this.textbox_sent_message.MaxLength = 100;
-            this.textbox_sent_message.Multiline = true;
-            this.textbox_sent_message.Name = "textbox_sent_message";
-            this.textbox_sent_message.Size = new System.Drawing.Size(328, 33);
-            this.textbox_sent_message.TabIndex = 1;
-            this.textbox_sent_message.Text = "Sent Message";
-            // 
-            // button_trade_sent
-            // 
-            this.button_trade_sent.Location = new System.Drawing.Point(335, 522);
-            this.button_trade_sent.Name = "button_trade_sent";
-            this.button_trade_sent.Size = new System.Drawing.Size(92, 33);
-            this.button_trade_sent.TabIndex = 2;
-            this.button_trade_sent.Text = "Send";
-            this.button_trade_sent.UseVisualStyleBackColor = true;
-            // 
-            // button_trade_accept
-            // 
-            this.button_trade_accept.Location = new System.Drawing.Point(559, 524);
-            this.button_trade_accept.Name = "button_trade_accept";
-            this.button_trade_accept.Size = new System.Drawing.Size(92, 33);
-            this.button_trade_accept.TabIndex = 3;
-            this.button_trade_accept.Text = "Accept";
-            this.button_trade_accept.UseVisualStyleBackColor = true;
-            // 
-            // button_trade_edit
-            // 
-            this.button_trade_edit.Location = new System.Drawing.Point(433, 522);
-            this.button_trade_edit.Name = "button_trade_edit";
-            this.button_trade_edit.Size = new System.Drawing.Size(92, 33);
-            this.button_trade_edit.TabIndex = 4;
-            this.button_trade_edit.Text = "Edit";
-            this.button_trade_edit.UseVisualStyleBackColor = true;
-            // 
-            // textbox_received_message
-            // 
-            this.textbox_received_message.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.textbox_received_message.Location = new System.Drawing.Point(2, 2);
-            this.textbox_received_message.MaxLength = 100;
-            this.textbox_received_message.Multiline = true;
-            this.textbox_received_message.Name = "textbox_received_message";
-            this.textbox_received_message.Size = new System.Drawing.Size(653, 25);
-            this.textbox_received_message.TabIndex = 5;
-            this.textbox_received_message.Text = "Received Message";
             // 
             // MainWindow
             // 

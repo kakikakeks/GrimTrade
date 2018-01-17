@@ -71,7 +71,7 @@ namespace IAGrim.Database.Synchronizer {
             );
         }
 
-        public void Save(DatabaseItem item) {
+        public new void Save(DatabaseItem item) {
             ThreadExecuter.Execute(
                 () => repo.Save(item)
             );
