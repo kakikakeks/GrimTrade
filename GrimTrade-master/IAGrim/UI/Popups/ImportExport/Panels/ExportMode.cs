@@ -2,17 +2,13 @@
 using IAGrim.Database.Interfaces;
 using IAGrim.Utilities.HelperClasses;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace IAGrim.UI.Popups.ImportExport.Panels {
+namespace IAGrim.UI.Popups.ImportExport.Panels
+{
     public partial class ExportMode : Form {
         private readonly GDTransferFile[] modSelection;
         private readonly IPlayerItemDao playerItemDao;

@@ -1,15 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Text;
-using IAGrim.Database;
 using IAGrim.Database.Interfaces;
 using IAGrim.Database.Model;
 using IAGrim.Services.Crafting.dto;
 using log4net;
 
-namespace IAGrim.Services.Crafting {
+namespace IAGrim.Services.Crafting
+{
     class RecipeService {
         private static readonly ILog Logger = LogManager.GetLogger(typeof(RecipeService));
         private readonly IDatabaseItemDao _itemDao;

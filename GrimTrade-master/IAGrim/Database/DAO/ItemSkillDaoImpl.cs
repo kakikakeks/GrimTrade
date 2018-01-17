@@ -3,12 +3,12 @@ using IAGrim.Database.DAO.Table;
 using IAGrim.Database.Interfaces;
 using IAGrim.Database.Model;
 using IAGrim.Parsers.Arz.dto;
-using System.Linq;
 using log4net;
 using NHibernate;
 using NHibernate.Transform;
 
-namespace IAGrim.Database.DAO {
+namespace IAGrim.Database.DAO
+{
     internal class ItemSkillDaoImpl : IItemSkillDao {
         private static readonly ILog Logger = LogManager.GetLogger(typeof(ItemSkillDaoImpl));
         private readonly ISessionCreator _sessionCreator;

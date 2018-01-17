@@ -1,11 +1,8 @@
 ﻿using IAGrim.Database.Interfaces;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace IAGrim.Database.Synchronizer {
+namespace IAGrim.Database.Synchronizer
+{
     public class BasicSynchronizer<T> : IBaseDao<T> {
         protected readonly ThreadExecuter ThreadExecuter;
         protected readonly ISessionCreator SessionCreator;

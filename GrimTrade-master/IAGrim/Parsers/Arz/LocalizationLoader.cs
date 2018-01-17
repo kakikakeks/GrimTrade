@@ -1,5 +1,4 @@
-﻿using DataAccess;
-using IAGrim.Database;
+﻿using IAGrim.Database;
 using Ionic.Zip;
 using log4net;
 using StatTranslator;
@@ -8,10 +7,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace IAGrim.Parsers.Arz {
+namespace IAGrim.Parsers.Arz
+{
     public class LocalizationLoader {
         private static readonly ILog Logger = LogManager.GetLogger(typeof(LocalizationLoader));
         private IDictionary<string, string> _tagsItems = new Dictionary<string, string>();

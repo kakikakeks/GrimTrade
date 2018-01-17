@@ -1,10 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace IAGrim.Utilities.RectanglePacker {
+namespace IAGrim.Utilities.RectanglePacker
+{
     class Shape : IComparable<Shape> {
         private int _w;
         private int _h;

@@ -2,14 +2,11 @@
 using log4net;
 using System;
 using System.Collections.Concurrent;
-using System.Collections.Generic;
-using System.Linq;
 using System.Runtime.ExceptionServices;
-using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
 
-namespace IAGrim.Database.Synchronizer {
+namespace IAGrim.Database.Synchronizer
+{
 
     public class ThreadExecuter : IDisposable {
         private static readonly ILog Logger = LogManager.GetLogger(typeof(ThreadExecuter));

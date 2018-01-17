@@ -1,10 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 using IAGrim.Database;
 using IAGrim.Database.DAO.Table;
@@ -14,7 +9,8 @@ using log4net;
 using IAGrim.Database.Interfaces;
 using IAGrim.Utilities;
 
-namespace IAGrim.UI {
+namespace IAGrim.UI
+{
     public partial class BuddySettings : Form {
         private static readonly ILog Logger = LogManager.GetLogger(typeof(BuddySettings));
         private System.Windows.Forms.Timer _delayedTextChangedTimer;

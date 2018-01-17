@@ -1,11 +1,5 @@
-﻿using IAGrim.Database.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace IAGrim.Database.Migrations {
+﻿namespace IAGrim.Database.Migrations
+{
     class MigrationHandler {
         private readonly ISessionCreator _sessionCreator;
         public MigrationHandler(ISessionCreator sessionCreator) {

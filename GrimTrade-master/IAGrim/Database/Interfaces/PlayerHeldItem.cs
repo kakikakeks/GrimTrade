@@ -2,11 +2,10 @@
 using StatTranslator;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using IAGrim.Database.Model;
 
-namespace IAGrim.Database.Interfaces {
+namespace IAGrim.Database.Interfaces
+{
     public interface PlayerHeldItem : IComparable {
         long Id { get; }
         string Stash { get; }

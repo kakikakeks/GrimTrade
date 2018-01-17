@@ -1,17 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using IAGrim.UI.Misc;
 using IAGrim.Database;
 using EvilsoftCommons;
 using log4net;
 using IAGrim.UI;
-using IAGrim.Parsers.Arz;
 using IAGrim.Database.Interfaces;
 
-namespace IAGrim.Services.MessageProcessor {
+namespace IAGrim.Services.MessageProcessor
+{
 
     /// <summary>
     /// Process InventorySack::AddItem

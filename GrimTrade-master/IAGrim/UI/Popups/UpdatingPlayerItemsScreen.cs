@@ -1,15 +1,11 @@
 ﻿using IAGrim.Database.Interfaces;
 using IAGrim.Parsers.Arz;
 using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 
-namespace IAGrim.UI {
+namespace IAGrim.UI
+{
     /// <summary>
     /// Loading screen while parsing player item stats
     /// </summary>

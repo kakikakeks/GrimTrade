@@ -327,12 +327,6 @@
     <Compile Include="UI\Controller\SearchController.cs" />
     <Compile Include="UI\Controller\SettingsController.cs" />
     <Compile Include="UI\Controller\JsonItem.cs" />
-    <Compile Include="UI\DesiredSkills.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="UI\DesiredSkills.Designer.cs">
-      <DependentUpon>DesiredSkills.cs</DependentUpon>
-    </Compile>
     <Compile Include="UI\Popups\DonateNagScreen.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -492,9 +486,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Tabs\BuddySettings.resx">
       <DependentUpon>BuddySettings.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UI\DesiredSkills.resx">
-      <DependentUpon>DesiredSkills.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Popups\DonateNagScreen.resx">
       <DependentUpon>DonateNagScreen.cs</DependentUpon>

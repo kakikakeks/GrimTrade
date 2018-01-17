@@ -1,8 +1,4 @@
-﻿using CefSharp.WinForms;
-using CefSharp;
-using IAGrim.Database;
-using IAGrim.Parsers.Arz;
-using IAGrim.Services.MessageProcessor;
+﻿using IAGrim.Database;
 using IAGrim.UI.Misc;
 using IAGrim.Utilities;
 using IAGrim.Utilities.HelperClasses;
@@ -11,15 +7,12 @@ using log4net;
 using System;
 using System.Collections.Generic;
 using System.IO;
-using System.IO.Pipes;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using IAGrim.Database.Interfaces;
 using IAGrim.Services;
 
-namespace IAGrim.UI.Controller {
+namespace IAGrim.UI.Controller
+{
     class ItemTransferController {
         private static readonly ILog Logger = LogManager.GetLogger(typeof(ItemTransferController));
         private readonly IPlayerItemDao _dao;

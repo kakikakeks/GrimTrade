@@ -1,10 +1,8 @@
 ﻿using CefSharp;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
-namespace IAGrim.Utilities {
+namespace IAGrim.Utilities
+{
     /// <summary>
     /// Helper class to hook URL requests for Chromium controls
     /// Derive from this class and overload OnBeforeBrowse

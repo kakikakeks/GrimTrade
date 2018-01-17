@@ -1,12 +1,9 @@
 ﻿using IAGrim.Database.DAO;
 using IAGrim.Database.Interfaces;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace IAGrim.Database.Synchronizer {
+namespace IAGrim.Database.Synchronizer
+{
     class RecipeItemRepo : BasicSynchronizer<RecipeItem>, IRecipeItemDao {
         private readonly IRecipeItemDao repo;
         public RecipeItemRepo(ThreadExecuter threadExecuter, ISessionCreator sessionCreator) : base(threadExecuter, sessionCreator) {

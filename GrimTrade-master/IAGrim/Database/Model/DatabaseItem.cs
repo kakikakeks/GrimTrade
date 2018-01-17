@@ -1,12 +1,11 @@
-﻿using IAGrim.Parsers.Arz;
-using IAGrim.Services.Dto;
+﻿using IAGrim.Services.Dto;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Text;
 
-namespace IAGrim.Database {
+namespace IAGrim.Database
+{
     public class DatabaseItem : IComparable, ICloneable {
         public virtual long Id { get; set; }
 

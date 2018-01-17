@@ -3,14 +3,10 @@ using NHibernate.Cfg;
 using NHibernate.Tool.hbm2ddl;
 using log4net;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
-using System.Text;
-using System.Threading;
 using IAGrim.Utilities;
 
-namespace SessionFactoryLoader {
+namespace SessionFactoryLoader
+{
     public class SessionFactory {
         private ISessionFactory _sessionFactory;
         private ILog logger = LogManager.GetLogger("SessionFactory");

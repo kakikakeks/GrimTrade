@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace IAGrim.Services {
+﻿namespace IAGrim.Services
+{
     class GrimStateTracker {
         public class WorldVector {
             public float X  { get; set; }

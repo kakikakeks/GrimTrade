@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Linq;
 using IAGrim.UI.Misc;
 using log4net;
 using IAGrim.Utilities;
@@ -10,7 +6,8 @@ using IAGrim.Utilities.HelperClasses;
 using System.Windows.Forms;
 //using EvilsoftCommons.Exceptions;
 
-namespace IAGrim.Services.MessageProcessor {
+namespace IAGrim.Services.MessageProcessor
+{
     class StashStatusHandler : IMessageProcessor {
         private readonly MessageType[] Relevants = new MessageType[] {
             MessageType.TYPE_OPEN_PRIVATE_STASH,

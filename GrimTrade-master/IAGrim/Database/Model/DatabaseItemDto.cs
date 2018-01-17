@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using IAGrim.Services.Dto;
+﻿using System.Collections.Generic;
 
-namespace IAGrim.Database.Model {
+namespace IAGrim.Database.Model
+{
     public class DatabaseItemDto {
         public string Name { get; set; }
 

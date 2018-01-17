@@ -1,10 +1,10 @@
 ﻿using IAGrim.Database.Interfaces;
-using IAGrim.Parsers.Arz;
 using IAGrim.Utilities.HelperClasses;
 using System;
 using System.Windows.Forms;
 
-namespace IAGrim.UI.Popups.ImportExport.Panels {
+namespace IAGrim.UI.Popups.ImportExport.Panels
+{
 
     partial class ImportExportModePicker : Form {
         private readonly Control.ControlCollection parentContainer;

@@ -1,13 +1,10 @@
 ﻿using IAGrim.Database.Interfaces;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using IAGrim.BuddyShare.dto;
 using IAGrim.Database.Dto;
 
-namespace IAGrim.Database.Synchronizer {
+namespace IAGrim.Database.Synchronizer
+{
     class BuddyItemRepo : BasicSynchronizer<BuddyItem>, IBuddyItemDao {
         private readonly IBuddyItemDao _repo;
         public BuddyItemRepo(ThreadExecuter threadExecuter, ISessionCreator sessionCreator) : base(threadExecuter, sessionCreator) {

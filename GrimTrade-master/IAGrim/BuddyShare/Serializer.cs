@@ -3,17 +3,13 @@ using IAGrim.Database;
 using IAGrim.Database.Interfaces;
 using IAGrim.Utilities;
 using log4net;
-using NHibernate;
-using NHibernate.Criterion;
-using System;
 using System.Collections.Generic;
-using System.Globalization;
 using System.Linq;
-using System.Text;
 using IAGrim.BuddyShare.dto;
 using Newtonsoft.Json;
 
-namespace IAGrim.BuddyShare {
+namespace IAGrim.BuddyShare
+{
     class Serializer {
         private const string BuddyVerificationId = "FEFE";
         static readonly ILog Logger = LogManager.GetLogger(typeof(Serializer));

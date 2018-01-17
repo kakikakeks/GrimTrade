@@ -1,11 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using NHibernate;
-using IAGrim.Database.Interfaces;
 
-namespace IAGrim.Database {
+namespace IAGrim.Database
+{
 
 
     public class BaseDao<T> where T : class {

@@ -3,10 +3,10 @@ using IAGrim.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 
-namespace IAGrim.UI {
+namespace IAGrim.UI
+{
     class UIHelper {
 
         public static Action<Form, Panel> AddAndShow = (Form f, Panel p) => {

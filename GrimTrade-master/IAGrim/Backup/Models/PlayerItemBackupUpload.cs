@@ -1,10 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace IAGrim.Backup.Models {
+namespace IAGrim.Backup.Models
+{
     class PlayerItemBackupUpload {
 
         public virtual long? Seed { get; set; }

@@ -2,17 +2,14 @@
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using IAGrim.Database.Interfaces;
-using IAGrim.UI.Controller;
 using IAGrim.Utilities;
 using IAGrim.Utilities.HelperClasses;
 using log4net;
-using log4net.Repository.Hierarchy;
 
-namespace IAGrim.UI.Tabs.Util {
+namespace IAGrim.UI.Tabs.Util
+{
     class ModSelectionHandler : IDisposable {
         private static readonly ILog Logger = LogManager.GetLogger(typeof(ModSelectionHandler));
         private long _numAvailableModFiltersLastUpdate = -1;

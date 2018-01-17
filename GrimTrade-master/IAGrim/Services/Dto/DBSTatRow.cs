@@ -1,12 +1,8 @@
 ﻿using DataAccess;
 using IAGrim.Database;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace IAGrim.Services.Dto {
+namespace IAGrim.Services.Dto
+{
 
     public class DBSTatRow : IItemStatI {
         public string Record { get; set; }

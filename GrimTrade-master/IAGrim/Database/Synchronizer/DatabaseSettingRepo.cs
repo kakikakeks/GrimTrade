@@ -1,11 +1,7 @@
 ﻿using IAGrim.Database.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace IAGrim.Database.Synchronizer {
+namespace IAGrim.Database.Synchronizer
+{
     class DatabaseSettingRepo : BasicSynchronizer<DatabaseSetting>, IDatabaseSettingDao {
         private readonly IDatabaseSettingDao repo;
         public DatabaseSettingRepo(ThreadExecuter threadExecuter, ISessionCreator sessionCreator) : base(threadExecuter, sessionCreator) {

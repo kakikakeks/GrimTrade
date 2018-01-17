@@ -1,23 +1,17 @@
 ﻿using EvilsoftCommons.UI;
 using IAGrim.Backup;
-using IAGrim.Database;
 using IAGrim.Database.Interfaces;
 using IAGrim.Utilities;
 using log4net;
 using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
 using System.Diagnostics;
-using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using IAGrim.Parsers.Arz;
 
-namespace IAGrim.UI.Popups {
+namespace IAGrim.UI.Popups
+{
     public partial class OnlineBackupLogin : Form {
         private static readonly ILog logger = LogManager.GetLogger(typeof(OnlineBackupLogin));
         TextboxPlaceholder tbPlaceholder;

@@ -1,8 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using DataAccess;
 
-namespace IAGrim.Parsers.Arz.dto {
+namespace IAGrim.Parsers.Arz.dto
+{
     public class ItemGrantedSkill : IComparable<ItemGrantedSkill> {
         public string Description;
 

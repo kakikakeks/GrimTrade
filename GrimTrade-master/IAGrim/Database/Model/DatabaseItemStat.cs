@@ -1,11 +1,7 @@
 ﻿using DataAccess;
-using IAGrim.Database.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
-namespace IAGrim.Database {
+namespace IAGrim.Database
+{
     public class DatabaseItemStat : IItemStatI {
         public virtual long Id { get; set; }
 

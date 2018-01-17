@@ -1,14 +1,10 @@
 ﻿using IAGrim.Database.Interfaces;
 using log4net;
 using NHibernate;
-using NHibernate.Criterion;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using NHibernate.Persister.Entity;
 
-namespace IAGrim.Database {
+namespace IAGrim.Database
+{
     /// <summary>
     /// Database class for handling internal Grim Dawn items
     /// These are not user owned items

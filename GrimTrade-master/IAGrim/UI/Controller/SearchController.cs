@@ -1,22 +1,17 @@
 ﻿using System;
-using CefSharp;
-using CefSharp.WinForms;
 using IAGrim.Database.Dto;
 using IAGrim.Database.Interfaces;
 using IAGrim.Services;
 using IAGrim.UI.Misc;
 using IAGrim.Utilities;
-using IAGrim.Utilities.HelperClasses;
 using log4net;
 using System.Collections.Generic;
-using System.Globalization;
-using System.IO;
 using System.Linq;
 using IAGrim.Database;
-using IAGrim.Parsers.Arz;
 using IAGrim.Services.Crafting;
 
-namespace IAGrim.UI.Controller {
+namespace IAGrim.UI.Controller
+{
 
     internal class SearchController {
         private static ILog _logger = LogManager.GetLogger(typeof(SearchController));

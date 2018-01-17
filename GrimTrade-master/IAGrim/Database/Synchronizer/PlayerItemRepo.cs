@@ -1,12 +1,10 @@
 ﻿using IAGrim.Database.Interfaces;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using IAGrim.Database.Dto;
 
-namespace IAGrim.Database.Synchronizer {
+namespace IAGrim.Database.Synchronizer
+{
     class PlayerItemRepo : BasicSynchronizer<PlayerItem>, IPlayerItemDao {
         private readonly IPlayerItemDao repo;
         public PlayerItemRepo(ThreadExecuter threadExecuter, ISessionCreator sessionCreator) : base(threadExecuter, sessionCreator) {

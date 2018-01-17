@@ -1,23 +1,20 @@
 ﻿//using EvilsoftCommons.Exceptions;
-using IAGrim.Database;
 using IAGrim.Database.DAO.Dto;
 using IAGrim.Database.Dto;
 using IAGrim.Database.Interfaces;
-using IAGrim.Parser.Helperclasses;
 using IAGrim.Services.Dto;
 using IAGrim.Utilities;
 using log4net;
 using NHibernate;
 using NHibernate.Criterion;
 using NHibernate.Transform;
-using StatTranslator;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using IAGrim.Database.DAO.Table;
 
-namespace IAGrim.Database {
+namespace IAGrim.Database
+{
 
     /// <summary>
     /// Database class for handling player owned items

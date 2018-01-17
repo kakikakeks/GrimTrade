@@ -1,11 +1,8 @@
 ﻿using IAGrim.UI;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace IAGrim.Utilities.HelperClasses {
+namespace IAGrim.Utilities.HelperClasses
+{
 
 
     public class GDTransferFile : ComboBoxItemToggle {

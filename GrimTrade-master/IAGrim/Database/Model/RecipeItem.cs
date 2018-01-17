@@ -5,11 +5,10 @@ using IAGrim.Utilities;
 using StatTranslator;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using IAGrim.Database.Model;
 
-namespace IAGrim.Database {
+namespace IAGrim.Database
+{
     public class RecipeItem : PlayerHeldItem, IComparable {
         public virtual long Id { get; set; }
 

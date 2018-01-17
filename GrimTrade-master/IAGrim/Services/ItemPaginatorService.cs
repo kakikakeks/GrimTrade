@@ -2,10 +2,9 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace IAGrim.Services {
+namespace IAGrim.Services
+{
     class ItemPaginatorService {        
         private readonly int _limit;
         private readonly Comparison<PlayerHeldItem> _comparer;

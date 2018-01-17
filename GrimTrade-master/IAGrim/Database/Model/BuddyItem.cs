@@ -1,16 +1,9 @@
-﻿using DataAccess;
-using IAGrim.Database.Interfaces;
-using IAGrim.Services.Dto;
-using IAGrim.Utilities;
-using StatTranslator;
-using System;
+﻿using IAGrim.Database.Interfaces;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Text;
 using IAGrim.Database.Model;
 
-namespace IAGrim.Database {
+namespace IAGrim.Database
+{
     public class BuddyItem : BaseItem, PlayerHeldItem {
         public long Id { get; set; }
         private DatabaseItem Internal { get; set; }

@@ -1,18 +1,12 @@
 ﻿using IAGrim.Database.Interfaces;
-using IAGrim.Database;
-using IAGrim.Parsers.Arz;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Linq;
-using System.Text;
-using DataAccess;
 using IAGrim.Database.Model;
-using StatTranslator;
-using IAGrim.Utilities;
 using IAGrim.Services.Dto;
 
-namespace IAGrim.Database {
+namespace IAGrim.Database
+{
     public class PlayerItem : BaseItem, PlayerHeldItem, IComparable, ICloneable {
         public virtual long Id { get; set; }
         public virtual long? OnlineId { get; set; }

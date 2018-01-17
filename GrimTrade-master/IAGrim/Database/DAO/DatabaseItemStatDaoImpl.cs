@@ -7,12 +7,12 @@ using NHibernate.Criterion;
 using NHibernate.Transform;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Linq;
 using IAGrim.Database.DAO.Table;
 using IAGrim.Services.Dto;
 
-namespace IAGrim.Database {
+namespace IAGrim.Database
+{
 
     public class DatabaseItemStatDaoImpl : BaseDao<DatabaseItemStat>, IDatabaseItemStatDao {
         private static readonly ILog Logger = LogManager.GetLogger(typeof(DatabaseItemStatDaoImpl));

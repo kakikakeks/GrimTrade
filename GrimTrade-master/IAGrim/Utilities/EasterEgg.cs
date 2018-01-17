@@ -1,10 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 
-namespace IAGrim.Utilities {
+namespace IAGrim.Utilities
+{
     /// <summary>
     /// Easter-prank class, all UI text will be reversed on the 1st of April.
     /// Restarting the program will fix it.

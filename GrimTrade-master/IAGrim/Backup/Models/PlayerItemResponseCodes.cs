@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace IAGrim.Backup.Models {
+﻿namespace IAGrim.Backup.Models
+{
     class PlayerItemResponseCodes {
         public const int ERRORCODE_SUCCESS = 1;
         public const int ERRORCODE_AUTH_FAILURE = 2;

@@ -1,12 +1,9 @@
 ﻿using log4net;
 using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace IAGrim.Utilities {
+namespace IAGrim.Utilities
+{
     class TemporaryCopy : IDisposable {
         private static readonly ILog Logger = LogManager.GetLogger(typeof(TemporaryCopy));
 

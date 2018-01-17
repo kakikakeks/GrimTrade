@@ -9,32 +9,20 @@ using IAGrim.UI;
 using IAGrim.UI.Misc;
 using IAGrim.Utilities;
 using log4net;
-using NHibernate;
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
-using System.Drawing;
-using System.Globalization;
 using System.IO;
-using System.IO.Compression;
 using System.Linq;
 using System.Reflection;
-using System.Text;
 using System.Threading;
 using System.Windows.Forms;
 using DataAccess;
-using EvilsoftCommons;
-//using EvilsoftCommons.Exceptions.UUIDGenerator;
-using Gameloop.Vdf;
-using IAGrim.BuddyShare;
-using IAGrim.Database.DAO;
 using IAGrim.Parser.Arc;
-//using IAGrim.Services.Crafting;
-using IAGrim.UI.Popups;
 using IAGrim.Utilities.HelperClasses;
 
 
-namespace IAGrim {
+namespace IAGrim
+{
 
     internal class 
         Program {
@@ -229,7 +217,7 @@ namespace IAGrim {
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private static void singleInstance_ArgumentsReceived(object _, ArgumentsReceivedEventArgs e) {
+        private static void SingleInstance_ArgumentsReceived(object _, ArgumentsReceivedEventArgs e) {
             try {
                 if (_mw != null) {
                     Action<string[]> restoreWindow = arguments => {
@@ -239,9 +227,7 @@ namespace IAGrim {
 
                     _mw.Invoke(restoreWindow);
                 }
-            } catch (Exception ex) {
-                //ExceptionReporter.ReportException(ex, "singleInstance_ArgumentsReceived");
-            }
+            } 
         }
 
         private static void PrintStartupInfo(SessionFactory factory) {

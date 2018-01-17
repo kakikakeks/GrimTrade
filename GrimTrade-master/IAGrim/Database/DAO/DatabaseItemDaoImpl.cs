@@ -6,18 +6,15 @@ using NHibernate.Criterion;
 using NHibernate.Transform;
 using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Data;
 using System.Data.SQLite;
 using System.Linq;
-using System.Text;
-using DataAccess;
 using IAGrim.Database.DAO.Table;
 using IAGrim.Database.Model;
 //using IAGrim.Services.Dto;
-using log4net.Repository.Hierarchy;
 
-namespace IAGrim.Database {
+namespace IAGrim.Database
+{
     /// <summary>
     /// Database class for handling internal Grim Dawn items
     /// These are not user owned items

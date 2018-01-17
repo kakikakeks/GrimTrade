@@ -1,19 +1,14 @@
 ﻿//using EvilsoftCommons.Exceptions;
 using IAGrim.Database;
 using IAGrim.Database.Interfaces;
-using IAGrim.UI;
-using IAGrim.Utilities;
 using log4net;
-using NHibernate;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Linq;
-using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
 
-namespace IAGrim.Parsers.Arz {
+namespace IAGrim.Parsers.Arz
+{
     class StatUpdateUIBackgroundWorker : IDisposable {
         private static ILog logger = LogManager.GetLogger(typeof(ParsingUiBackgroundWorker));
         private BackgroundWorker bw = new BackgroundWorker();

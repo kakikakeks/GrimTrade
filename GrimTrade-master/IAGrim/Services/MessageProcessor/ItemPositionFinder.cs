@@ -1,15 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using IAGrim.UI.Misc;
 using EvilsoftCommons;
 using log4net;
 using IAGrim.Utilities.RectanglePacker;
 using IAGrim.Utilities;
 
-namespace IAGrim.Services.MessageProcessor {
+namespace IAGrim.Services.MessageProcessor
+{
     class ItemPositionFinder : IMessageProcessor {
         private static readonly ILog Logger = LogManager.GetLogger(typeof(ItemPositionFinder));
         private DynamicPacker _dynamicPacker;

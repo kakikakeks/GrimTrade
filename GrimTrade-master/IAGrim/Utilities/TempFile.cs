@@ -1,11 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace IAGrim.Utilities {
+namespace IAGrim.Utilities
+{
     public class TempFile : IDisposable {
         public readonly string filename;
 

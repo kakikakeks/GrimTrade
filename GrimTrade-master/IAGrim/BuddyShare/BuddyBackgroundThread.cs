@@ -2,15 +2,13 @@
 using IAGrim.Utilities;
 using log4net;
 using System;
-using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Linq;
-using System.Text;
 using System.Threading;
 using IAGrim.Database.Interfaces;
 
-namespace IAGrim.BuddyShare {
+namespace IAGrim.BuddyShare
+{
     class BuddyBackgroundThread : IDisposable {
         private static readonly ILog Logger = LogManager.GetLogger(typeof(BuddyBackgroundThread));
         private BackgroundWorker bw = new BackgroundWorker();

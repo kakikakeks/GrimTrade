@@ -1,18 +1,12 @@
-﻿using IAGrim.Database;
-using IAGrim.Database.Interfaces;
+﻿using IAGrim.Database.Interfaces;
 using IAGrim.Parsers.Arz;
 using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
-using System.Windows.Threading;
 using IAGrim.Utilities;
 
-namespace IAGrim.UI {
+namespace IAGrim.UI
+{
     /// <summary>
     /// Parses the arc/arz from Grim Dawn and creates a UI loading screen
     /// </summary>

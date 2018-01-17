@@ -4,20 +4,17 @@ using System.IO;
 using System.Linq;
 using System.Net;
 using System.Text;
-using System.Diagnostics;
-using System.IO.Compression;
 using System.Web;
-using EvilsoftCommons;
 using log4net;
 using IAGrim.Utilities;
 using Newtonsoft.Json.Linq;
 using Newtonsoft.Json;
 //using EvilsoftCommons.Exceptions;
 using IAGrim.BuddyShare.dto;
-using log4net.Util;
 
 
-namespace IAGrim.BuddyShare {
+namespace IAGrim.BuddyShare
+{
     public class Synchronizer {
         static readonly ILog Logger = LogManager.GetLogger(typeof(Synchronizer));
         private const long UploadSynchronizeCooldown = 1000 * 60 * 5;

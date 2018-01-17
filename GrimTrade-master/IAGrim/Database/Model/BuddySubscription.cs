@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace IAGrim.Database {
+﻿namespace IAGrim.Database
+{
     /// <summary>
     /// List of buddies who the user subscribes to
     /// </summary>

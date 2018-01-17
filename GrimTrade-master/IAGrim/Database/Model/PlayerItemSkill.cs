@@ -1,14 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using DataAccess;
 using IAGrim.Services.Dto;
 using IAGrim.Utilities;
 using StatTranslator;
 
-namespace IAGrim.Database.Model {
+namespace IAGrim.Database.Model
+{
     public class PlayerItemSkill {
         public string PlayerItemRecord { get; set; }
         public string Description { get; set; }

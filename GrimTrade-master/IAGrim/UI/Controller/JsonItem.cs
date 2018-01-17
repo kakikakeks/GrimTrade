@@ -1,11 +1,7 @@
-﻿using StatTranslator;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
-namespace IAGrim.UI.Controller {
+namespace IAGrim.UI.Controller
+{
 
     public class JsonItem {
         public string BaseRecord { get; set; }

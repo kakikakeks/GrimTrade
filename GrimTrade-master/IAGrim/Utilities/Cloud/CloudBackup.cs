@@ -1,20 +1,17 @@
 ﻿using EvilsoftCommons.Cloud;
 //using EvilsoftCommons.Exceptions;
 using IAGrim.Backup.FileWriter;
-using IAGrim.Database;
 using IAGrim.Database.Interfaces;
 using Ionic.Zip;
 using log4net;
-using NHibernate;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
-using System.Reflection;
-using System.Text;
 
-namespace IAGrim.Utilities.Cloud {
+namespace IAGrim.Utilities.Cloud
+{
 
     internal class CloudBackup : ICloudBackup {
         private static readonly ILog Logger = LogManager.GetLogger(typeof(CloudBackup));

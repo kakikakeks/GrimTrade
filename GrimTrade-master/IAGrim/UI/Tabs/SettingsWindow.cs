@@ -1,24 +1,17 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
 using System.Diagnostics;
 using System.Drawing;
 using System.IO;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
-using IAGrim.Database;
 using IAGrim.Parsers.Arz;
-using log4net;
 using EvilsoftCommons;
 using IAGrim.UI.Controller;
-using IAGrim.Utilities;
 using IAGrim.Database.Interfaces;
-using IAGrim.UI.Popups;
 using IAGrim.Utilities.HelperClasses;
 // 
-namespace IAGrim.UI {
+namespace IAGrim.UI
+{
     partial class SettingsWindow : Form {
         private ISettingsController _controller = new SettingsController();
         private TooltipHelper _tooltipHelper;

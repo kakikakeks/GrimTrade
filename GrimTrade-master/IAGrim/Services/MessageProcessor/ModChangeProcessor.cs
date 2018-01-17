@@ -3,13 +3,9 @@ using IAGrim.UI;
 using IAGrim.UI.Controller;
 using IAGrim.UI.Misc;
 using log4net;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace IAGrim.Services.MessageProcessor {
+namespace IAGrim.Services.MessageProcessor
+{
     class ModChangeProcessor : IMessageProcessor {
         private ILog logger = LogManager.GetLogger(typeof(ModChangeProcessor));
         private readonly ISettingsReadController settingsController;

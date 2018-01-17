@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Diagnostics;
 
-namespace IAGrim.Utilities {
+namespace IAGrim.Utilities
+{
     class ActionCooldown {
         private Stopwatch _stopwatch;
         private readonly long _cooldown;

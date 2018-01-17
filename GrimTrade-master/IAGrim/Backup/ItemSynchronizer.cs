@@ -5,16 +5,15 @@ using IAGrim.Database.Interfaces;
 using log4net;
 using Newtonsoft.Json;
 using System;
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.IO;
 using System.Linq;
 using System.Net;
 using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
 
-namespace IAGrim.Backup {
+namespace IAGrim.Backup
+{
     public class ItemSynchronizer : IDisposable {
         private static readonly ILog Logger = LogManager.GetLogger(typeof(ItemSynchronizer));
         private BackgroundWorker _bw;

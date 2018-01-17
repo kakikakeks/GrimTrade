@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace IAGrim.Database {
+﻿namespace IAGrim.Database
+{
     public class PlayerItemRecord {
         public virtual long PlayerItemId { get; set; }
         public virtual string Record { get; set; }

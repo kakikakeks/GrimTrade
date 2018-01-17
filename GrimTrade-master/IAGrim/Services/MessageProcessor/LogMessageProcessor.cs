@@ -1,13 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using IAGrim.UI.Misc;
 using log4net;
 using EvilsoftCommons;
 
-namespace IAGrim.Services.MessageProcessor {
+namespace IAGrim.Services.MessageProcessor
+{
     class LogMessageProcessor : IMessageProcessor {
         private ILog logger = LogManager.GetLogger(typeof(LogMessageProcessor));
         private bool doLog = false;

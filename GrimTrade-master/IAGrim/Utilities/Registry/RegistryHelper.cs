@@ -1,14 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using log4net;
-using log4net.Repository.Hierarchy;
+﻿using log4net;
 using Microsoft.Win32;
 
-namespace IAGrim.Utilities.Registry {
+namespace IAGrim.Utilities.Registry
+{
     class RegistryHelper {
         private static readonly ILog Logger = LogManager.GetLogger(typeof(RegistryHelper));
 

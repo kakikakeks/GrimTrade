@@ -7,9 +7,9 @@ using System.IO;
 using System.Linq;
 using IAGrim.Database.Model;
 using log4net;
-using StatTranslator;
 
-namespace IAGrim.Utilities {
+namespace IAGrim.Utilities
+{
 
     internal static class ItemHtmlWriter {
         private static readonly ILog Logger = LogManager.GetLogger(typeof(ItemHtmlWriter));

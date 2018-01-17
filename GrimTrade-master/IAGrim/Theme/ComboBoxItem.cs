@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace IAGrim.Theme {
+﻿namespace IAGrim.Theme
+{
     class ComboBoxItem {
         public string[] Filter {
             get;

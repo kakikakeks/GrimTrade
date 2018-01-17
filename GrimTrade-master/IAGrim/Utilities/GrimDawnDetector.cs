@@ -1,18 +1,16 @@
 ﻿//using EvilsoftCommons.Exceptions;
-using IAGrim.Utilities;
 using log4net;
 using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
-using System.Linq;
 using System.Management;
 using System.Runtime.InteropServices;
-using System.Text;
 using Gameloop.Vdf;
 
-namespace IAGrim {
+namespace IAGrim
+{
     class GrimDawnDetector {
         private static readonly ILog Logger = LogManager.GetLogger(typeof(GrimDawnDetector));
 

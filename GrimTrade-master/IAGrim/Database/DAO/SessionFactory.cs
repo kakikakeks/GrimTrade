@@ -1,20 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Reflection;
-using System.Text;
 using NHibernate;
 using NHibernate.Cfg;
 using NHibernate.Tool.hbm2ddl;
 using log4net;
 using IAGrim.Utilities;
 //using EvilsoftCommons.Exceptions;
-using System.Security.Permissions;
-using System.Security;
 using System.Threading;
 
-namespace IAGrim.Database {
+namespace IAGrim.Database
+{
     public interface ISessionCreator {
 
         ISession OpenSession();

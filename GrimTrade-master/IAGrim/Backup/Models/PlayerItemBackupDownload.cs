@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
-namespace IAGrim.Backup.Models {
+namespace IAGrim.Backup.Models
+{
 
 #pragma warning disable 0649
     class PlayerItemBackupDownload {

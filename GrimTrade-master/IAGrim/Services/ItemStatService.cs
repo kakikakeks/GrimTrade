@@ -1,13 +1,6 @@
 ﻿using IAGrim.Database;
-using System;
-using System.CodeDom;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Runtime.Caching;
-using NHibernate;
-using NHibernate.Transform;
 using IAGrim.Services.Dto;
 using log4net;
 using IAGrim.Database.Interfaces;
@@ -15,7 +8,8 @@ using IAGrim.Database.DAO.Dto;
 using IAGrim.Database.Model;
 using MoreLinq;
 
-namespace IAGrim.Services {
+namespace IAGrim.Services
+{
     class ItemStatService {
         private static readonly ILog Logger = LogManager.GetLogger(typeof(ItemStatService));
         private readonly IDatabaseItemStatDao _databaseItemStatDao;

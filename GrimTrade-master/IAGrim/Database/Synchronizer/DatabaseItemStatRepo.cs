@@ -1,14 +1,11 @@
 ﻿using IAGrim.Database.Interfaces;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using IAGrim.Services.Dto;
 using NHibernate;
 using IAGrim.Database.DAO.Dto;
 
-namespace IAGrim.Database.Synchronizer {
+namespace IAGrim.Database.Synchronizer
+{
     class DatabaseItemStatRepo : BasicSynchronizer<DatabaseItemStat>, IDatabaseItemStatDao {
         private readonly IDatabaseItemStatDao repo;
         public DatabaseItemStatRepo(ThreadExecuter threadExecuter, ISessionCreator sessionCreator) : base(threadExecuter, sessionCreator) {

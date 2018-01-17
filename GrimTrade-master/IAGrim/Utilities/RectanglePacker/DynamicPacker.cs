@@ -1,16 +1,10 @@
-﻿using IAGrim.Database;
-using IAGrim.Database.Interfaces;
-using IAGrim.Parsers;
-using IAGrim.Parsers.Arz;
-using System;
-using System.Collections.Concurrent;
+﻿using IAGrim.Database.Interfaces;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace IAGrim.Utilities.RectanglePacker {
+namespace IAGrim.Utilities.RectanglePacker
+{
     class DynamicPacker {
         private Packer packer;
         private readonly IDatabaseItemStatDao itemStatDao;

@@ -2,13 +2,9 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics;
-using System.Drawing;
-using System.IO;
 using System.Linq;
-using System.Reflection;
 using System.Runtime.InteropServices;
 using System.Threading;
-using System.Timers;
 using System.Windows.Forms;
 //using AutoUpdaterDotNET;
 using CefSharp;
@@ -30,13 +26,12 @@ using IAGrim.UI.Popups;
 using IAGrim.UI.Tabs;
 using IAGrim.Utilities;
 using IAGrim.Utilities.Cloud;
-using IAGrim.Utilities.HelperClasses;
 using IAGrim.Utilities.RectanglePacker;
 using log4net;
-using MoreLinq;
 using Timer = System.Timers.Timer;
 
-namespace IAGrim.UI {
+namespace IAGrim.UI
+{
 
     public partial class MainWindow : Form {
         private static readonly ILog Logger = LogManager.GetLogger(typeof(MainWindow));

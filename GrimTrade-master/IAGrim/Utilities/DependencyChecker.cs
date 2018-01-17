@@ -1,11 +1,8 @@
 ﻿using Microsoft.Win32;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace IAGrim.Utilities {
+namespace IAGrim.Utilities
+{
     static class DependencyChecker {
 
         // http://stackoverflow.com/questions/951856/is-there-an-easy-way-to-check-the-net-framework-version

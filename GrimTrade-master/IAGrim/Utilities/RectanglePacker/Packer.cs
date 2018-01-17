@@ -1,10 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace IAGrim.Utilities.RectanglePacker {
+namespace IAGrim.Utilities.RectanglePacker
+{
     class Packer {
         private bool[,] Map;
         public uint Height { private set; get; }

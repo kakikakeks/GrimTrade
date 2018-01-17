@@ -1,27 +1,19 @@
-﻿using IAGrim.Database;
-using IAGrim.Database.Dto;
+﻿using IAGrim.Database.Dto;
 using IAGrim.Database.Interfaces;
 using IAGrim.Theme;
 using IAGrim.UI.Controller;
-using IAGrim.Utilities;
 using IAGrim.Utilities.HelperClasses;
 using log4net;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using IAGrim.UI.Tabs.Util;
 
-namespace IAGrim.UI {
+namespace IAGrim.UI
+{
 
     partial class SearchWindow : Form {
         private static readonly ILog Logger = LogManager.GetLogger(typeof(SearchWindow));
-        private DesiredSkills _filterWindow;
         private readonly Action<string> _setStatus;
         private ScrollPanelMessageFilter _scrollableFilterView;
         private System.Windows.Forms.Timer _delayedTextChangedTimer;
@@ -169,7 +161,6 @@ namespace IAGrim.UI {
 
 
         private void ConfigureAndCreateFilterWindow() {
-            this._filterWindow = new DesiredSkills(_databaseItemDao);
             _filterWindow.TopLevel = false;
             _filterWindow.OnChanged += filterWindow_OnChanged;
             panelFilter.Controls.Add(_filterWindow);
@@ -203,7 +194,7 @@ namespace IAGrim.UI {
         }
 
         private void SearchWindow_FormClosing(object sender, FormClosingEventArgs e) {
-            _filterWindow.OnChanged -= filterWindow_OnChanged;
+  
             this.Activated -= SearchWindow_Activated;
             this.Deactivate -= SearchWindow_Deactivate;
 
@@ -211,7 +202,6 @@ namespace IAGrim.UI {
         }
 
         public void ClearFilters() {
-            _filterWindow.ClearFilters();
             searchField.Text = string.Empty;
             comboBoxItemQuality.SelectedIndex = 0;
             slotFilter.SelectedIndex = 0;
@@ -241,19 +231,19 @@ namespace IAGrim.UI {
 
         #region Click Listeners
 
-        private void searchField_TextChanged(object sender, EventArgs e) {
+        private void SearchField_TextChanged(object sender, EventArgs e) {
             if (Properties.Settings.Default.AutoSearch) {
                 //if (searchField.Text.Length >= 1 || searchField.Text.Length == 0)
                 UpdateListviewDelayed(600);
             }
         }
 
-        private void comboBoxItemQuality_SelectedIndexChanged(object sender, EventArgs e) {
+        private void ComboBoxItemQuality_SelectedIndexChanged(object sender, EventArgs e) {
             if (Properties.Settings.Default.AutoSearch)
                 UpdateListviewDelayed();
         }
 
-        private void slotFilter_SelectedIndexChanged(object sender, EventArgs e) {
+        private void SlotFilter_SelectedIndexChanged(object sender, EventArgs e) {
             if (Properties.Settings.Default.AutoSearch)
                 UpdateListviewDelayed();
         }
@@ -264,14 +254,14 @@ namespace IAGrim.UI {
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void filterWindow_OnChanged(object sender, FilterEventArgs args) {
+        private void FilterWindow_OnChanged(object sender, FilterEventArgs args) {
             if (Properties.Settings.Default.AutoSearch)
                 UpdateListviewDelayed();
         }
         
         #endregion Click Listeners
 
-        private void checkBoxOrderByLevel_CheckedChanged(object sender, EventArgs e)
+        private void CheckBoxOrderByLevel_CheckedChanged(object sender, EventArgs e)
         {
             UpdateListviewDelayed();
         }

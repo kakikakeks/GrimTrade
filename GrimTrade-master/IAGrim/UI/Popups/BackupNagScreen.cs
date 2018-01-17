@@ -1,16 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using IAGrim.Parsers.Arz;
 using IAGrim.Utilities;
 
-namespace IAGrim.UI.Popups {
+namespace IAGrim.UI.Popups
+{
     public partial class BackupNagScreen : Form {
         private static DateTime nextNag;
         public static bool ShouldNag {

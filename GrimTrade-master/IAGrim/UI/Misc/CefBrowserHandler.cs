@@ -1,17 +1,13 @@
 ﻿using CefSharp;
 using CefSharp.WinForms;
-using IAGrim.Database;
 using IAGrim.Utilities;
 using log4net;
 using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace IAGrim.UI.Misc {
+namespace IAGrim.UI.Misc
+{
     public class CefBrowserHandler : IDisposable {
         private static readonly ILog Logger = LogManager.GetLogger(typeof(CefBrowserHandler));
         private ChromiumWebBrowser _browser;

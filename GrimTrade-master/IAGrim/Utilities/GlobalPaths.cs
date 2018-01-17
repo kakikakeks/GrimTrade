@@ -1,13 +1,10 @@
-﻿using IAGrim.Parsers.Arz;
-using IAGrim.Utilities.HelperClasses;
+﻿using IAGrim.Utilities.HelperClasses;
 using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace IAGrim.Utilities {
+namespace IAGrim.Utilities
+{
     internal static class GlobalPaths {
         private static HashSet<string> ParsedFiles = new HashSet<string>();
         private static List<GDTransferFile> TransferFilesCache = new List<GDTransferFile>();

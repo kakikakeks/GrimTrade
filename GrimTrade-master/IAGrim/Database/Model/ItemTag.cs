@@ -1,10 +1,8 @@
 ﻿using IAGrim.Parser.Arc;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
-namespace IAGrim.Database {
+namespace IAGrim.Database
+{
     public class ItemTag : IItemTag, IComparable<ItemTag> {
         public virtual string Tag { get; set; }
         public virtual string Name { get; set; }

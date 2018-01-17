@@ -1,16 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 using System.Timers;
 using IAGrim.Parsers.Arz;
 using IAGrim.Utilities;
 
-namespace IAGrim.UI {
+namespace IAGrim.UI
+{
     public partial class DonateNagScreen : Form {
         readonly System.Timers.Timer _aTimer = new System.Timers.Timer(50);
         readonly Color _graycolor = Color.FromArgb(240, 240, 240);

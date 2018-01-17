@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using IAGrim.BuddyShare.dto;
 using IAGrim.Database.Dto;
 
-namespace IAGrim.Database.Interfaces {
+namespace IAGrim.Database.Interfaces
+{
     public interface IBuddyItemDao : IBaseDao<BuddyItem> {
         void SetItems(long userid, string description, List<JsonBuddyItem> items);
         void RemoveBuddy(long buddyId);

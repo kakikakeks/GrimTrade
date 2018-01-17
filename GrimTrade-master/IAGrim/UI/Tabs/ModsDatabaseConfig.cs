@@ -1,20 +1,15 @@
-﻿using IAGrim.Database;
-using IAGrim.Database.Interfaces;
+﻿using IAGrim.Database.Interfaces;
 using IAGrim.Parsers.Arz;
 using log4net;
 using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.IO;
 using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 using IAGrim.Utilities;
 
-namespace IAGrim.UI {
+namespace IAGrim.UI
+{
     public partial class ModsDatabaseConfig : Form {
         private static readonly ILog Logger = LogManager.GetLogger(typeof(ModsDatabaseConfig));
         private readonly IDatabaseSettingDao _databaseSettingDao;

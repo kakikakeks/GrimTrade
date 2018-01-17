@@ -4,10 +4,9 @@ using NHibernate.Criterion;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace IAGrim.Database.DAO {
+namespace IAGrim.Database.DAO
+{
     public class RecipeItemDaoImpl : BaseDao<RecipeItem>, IRecipeItemDao {
         public RecipeItemDaoImpl(ISessionCreator sessionCreator) : base(sessionCreator) {
         }

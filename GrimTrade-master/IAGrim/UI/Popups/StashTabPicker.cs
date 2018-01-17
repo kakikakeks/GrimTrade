@@ -1,22 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using IAGrim.Parsers.Arz;
-using IAGrim.UI.Tabs.Util;
 using IAGrim.Utilities;
 using IAGrim.Utilities.Registry;
 using log4net;
-using log4net.Repository.Hierarchy;
-using Microsoft.Win32;
 
-namespace IAGrim.UI.Popups {
+namespace IAGrim.UI.Popups
+{
     public partial class StashTabPicker : Form {
         private static readonly ILog Logger = LogManager.GetLogger(typeof(StashTabPicker));
         private readonly int _numStashTabs;

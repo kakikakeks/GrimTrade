@@ -1,18 +1,14 @@
 ﻿//using EvilsoftCommons.Exceptions;
 using EvilsoftCommons.Misc;
-using IAGrim.UI;
-using IAGrim.Utilities;
 using log4net;
 using System;
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.IO;
-using System.Linq;
-using System.Text;
 using System.Threading;
 using System.Windows.Forms;
 
-namespace IAGrim.Parsers.Arz {
+namespace IAGrim.Parsers.Arz
+{
 
     /// <summary>
     /// Background worker for parsing Grim Dawn database

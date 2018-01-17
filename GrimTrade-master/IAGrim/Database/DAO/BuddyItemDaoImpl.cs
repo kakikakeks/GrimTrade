@@ -2,17 +2,16 @@
 using IAGrim.Database.Interfaces;
 using log4net;
 using NHibernate;
-using NHibernate.Criterion;
 using System.Collections.Generic;
 using System.Linq;
 using IAGrim.BuddyShare.dto;
 using IAGrim.Database.DAO.Table;
 using IAGrim.Database.Dto;
 using IAGrim.Utilities;
-using NHibernate.Linq;
 using NHibernate.Transform;
 
-namespace IAGrim.Database {
+namespace IAGrim.Database
+{
     public class BuddyItemDaoImpl : BaseDao<BuddyItem>, IBuddyItemDao {
         private static readonly ILog Logger = LogManager.GetLogger(typeof(BuddyItemDaoImpl));
 

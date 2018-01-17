@@ -1,21 +1,18 @@
-﻿using IAGrim.Database;
-using IAGrim.Database.Interfaces;
+﻿using IAGrim.Database.Interfaces;
 using IAGrim.Parsers.Arz;
 using IAGrim.Utilities;
 using log4net;
 using StatTranslator;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace IAGrim.UI {
+namespace IAGrim.UI
+{
     public partial class LanguagePackPicker : Form {
         private static ILog logger = LogManager.GetLogger(typeof(LanguagePackPicker));
         private readonly string path;

@@ -1,18 +1,15 @@
 ﻿using IAGrim.Database;
 using log4net;
-using NHibernate;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Text;
-using IAGrim.Utilities;
-using NHibernate.Criterion;
 //using EvilsoftCommons.Exceptions;
 using EvilsoftCommons;
 using IAGrim.Database.Interfaces;
 
-namespace IAGrim.Parsers {
+namespace IAGrim.Parsers
+{
     public class RecipeParser {
         private static readonly ILog Logger = LogManager.GetLogger(typeof(RecipeParser));
         private readonly IRecipeItemDao _recipeItemDao;
