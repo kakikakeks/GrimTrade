@@ -188,26 +188,26 @@ namespace IAGrim.UI
         //}
 
 
-        private void OnlineBackupAuthFailureHandler() {
-            Logger.Warn("Online backup failed due to an authentication failure.");
-            _itemSynchronizer?.Dispose();
-            _itemSynchronizer = null;
-        }
-        private void EnableOnlineBackups(bool enable) {
-            if (enable) {
-                if (_itemSynchronizer == null) {
-                    _itemSynchronizer = new ItemSynchronizer(
-                        _playerItemDao, 
-                        Settings.Default.OnlineBackupToken, 
-                        GlobalSettings.RemoteBackupServer, 
-                        OnlineBackupAuthFailureHandler);
-                    _itemSynchronizer.Start();
-                }
-            } else {
-                _itemSynchronizer?.Dispose();
-                _itemSynchronizer = null;
-            }
-        }
+        //private void OnlineBackupAuthFailureHandler() {
+        //    Logger.Warn("Online backup failed due to an authentication failure.");
+        //    _itemSynchronizer?.Dispose();
+        //    _itemSynchronizer = null;
+        //}
+        //private void EnableOnlineBackups(bool enable) {
+        //    if (enable) {
+        //        if (_itemSynchronizer == null) {
+        //            _itemSynchronizer = new ItemSynchronizer(
+        //                _playerItemDao, 
+        //                Settings.Default.OnlineBackupToken, 
+        //                GlobalSettings.RemoteBackupServer, 
+        //                OnlineBackupAuthFailureHandler);
+        //            _itemSynchronizer.Start();
+        //        }
+        //    } else {
+        //        _itemSynchronizer?.Dispose();
+        //        _itemSynchronizer = null;
+        //    }
+        //}
 
 
         private void IterAndCloseForms(Control.ControlCollection controls) {
@@ -492,12 +492,12 @@ namespace IAGrim.UI
 
             addAndShow(_buddySettingsWindow, buddyPanel);
 
-            var backupSettings = new BackupSettings(EnableOnlineBackups, _playerItemDao);
-            tabControl1.Selected += ((s, ev) => {
-                if (ev.TabPage == tabPageBackups)
-                    backupSettings?.BackupSettings_GotFocus();
-            });
-            addAndShow(backupSettings, backupPanel);
+            //var backupSettings = new BackupSettings(EnableOnlineBackups, _playerItemDao);
+            //tabControl1.Selected += ((s, ev) => {
+            //    if (ev.TabPage == tabPageBackups)
+            //        backupSettings?.BackupSettings_GotFocus();
+            //});
+            //addAndShow(backupSettings, backupPanel);
             //addAndShow(new ModsDatabaseConfig(DatabaseLoadedTrigger, _databaseSettingDao, _arzParser, _playerItemDao), modsPanel);
             addAndShow(new HelpTab(), panelHelp);            
             addAndShow(new LoggingWindow(), panelLogging);
@@ -610,10 +610,10 @@ namespace IAGrim.UI
             Application.AddMessageFilter(new MousewheelMessageFilter());
 
 
-            {
-                var b = !string.IsNullOrEmpty(Settings.Default.OnlineBackupToken) && Settings.Default.OnlineBackupVerified;
-                EnableOnlineBackups(b);
-            }
+            //{
+            //    var b = !string.IsNullOrEmpty(Settings.Default.OnlineBackupToken) && Settings.Default.OnlineBackupVerified;
+            //    EnableOnlineBackups(b);
+            //}
 
 
 

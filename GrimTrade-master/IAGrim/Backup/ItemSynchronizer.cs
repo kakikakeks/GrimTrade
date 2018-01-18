@@ -50,12 +50,12 @@ namespace IAGrim.Backup
             this._authenticationIssuesCallback = authenticationIssuesCallback;
         }
 
-        public void Start() {
-            _bw = new BackgroundWorker { WorkerSupportsCancellation = true };
-            _bw.DoWork += new DoWorkEventHandler(Loop);
-            _bw.WorkerSupportsCancellation = true;
-            _bw.RunWorkerAsync();
-        }
+        //public void Start() {
+        //    _bw = new BackgroundWorker { WorkerSupportsCancellation = true };
+        //    _bw.DoWork += new DoWorkEventHandler(Loop);
+        //    _bw.WorkerSupportsCancellation = true;
+        //    _bw.RunWorkerAsync();
+        //}
 
 
         private void HandleAuthenticationIssues(int errorCode) {
@@ -274,40 +274,40 @@ namespace IAGrim.Backup
             }
         }
 
-        private void Loop(object sender, DoWorkEventArgs e) {
-            if (Thread.CurrentThread.Name == null)
-                Thread.CurrentThread.Name = "ItemSynchroniser";
+        //private void Loop(object sender, DoWorkEventArgs e) {
+        //    if (Thread.CurrentThread.Name == null)
+        //        Thread.CurrentThread.Name = "ItemSynchroniser";
 
-            BackgroundWorker bw = sender as BackgroundWorker;
-            try {
+        //    BackgroundWorker bw = sender as BackgroundWorker;
+        //    try {
                 
-                while (!bw.CancellationPending) {
-                    try {
-                        Thread.Sleep(1);
-                    }
-                    catch (Exception) { }
+        //        while (!bw.CancellationPending) {
+        //            try {
+        //                Thread.Sleep(1);
+        //            }
+        //            catch (Exception) { }
 
 
-                    if (_authenticationDelay > DateTime.UtcNow)
-                        continue;
+        //            if (_authenticationDelay > DateTime.UtcNow)
+        //                continue;
 
-                    if (DateTime.UtcNow >= _nextUpload) {
-                        Delete();
-                        Upload();
-                    }
+        //            if (DateTime.UtcNow >= _nextUpload) {
+        //                Delete();
+        //                Upload();
+        //            }
 
-                    if (DateTime.UtcNow >= _nextDownload) {
-                        Download();
-                    }
-                }
-            }
-            // Hopefully these are just IO exceptions, time will tell.
-            catch (Exception ex) {
-                Logger.Warn(ex.Message);
-                Logger.Warn(ex.StackTrace);
-                ExceptionReporter.ReportException(ex);
-            }
-        }
+        //            if (DateTime.UtcNow >= _nextDownload) {
+        //                Download();
+        //            }
+        //        }
+        //    }
+        //    // Hopefully these are just IO exceptions, time will tell.
+        //    //catch (Exception ex) {
+        //    //    Logger.Warn(ex.Message);
+        //    //    Logger.Warn(ex.StackTrace);
+        //    //    ExceptionReporter.ReportException(ex);
+        //    //}
+        //}
 
 
 
@@ -349,15 +349,15 @@ namespace IAGrim.Backup
                     Logger.Info("Could not resolve DNS for backup server, delaying upload.");
                 }
             }
-            catch (IOException ex) {
-                Logger.Warn(ex.Message);
-                Logger.Warn(ex.StackTrace);
-            }
-            catch (Exception ex) {
-                Logger.Error(ex.Message);
-                Logger.Error(ex.StackTrace);
-                ExceptionReporter.ReportException(ex);
-            }
+            //catch (IOException ex) {
+            //    Logger.Warn(ex.Message);
+            //    Logger.Warn(ex.StackTrace);
+            //}
+            //catch (Exception ex) {
+            //    Logger.Error(ex.Message);
+            //    Logger.Error(ex.StackTrace);
+            //    ExceptionReporter.ReportException(ex);
+            //}
 
             return null;
         }

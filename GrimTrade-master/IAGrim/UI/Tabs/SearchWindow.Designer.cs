@@ -98,7 +98,7 @@
             this.comboBoxItemQuality.Size = new System.Drawing.Size(59, 21);
             this.comboBoxItemQuality.TabIndex = 43;
             this.tooltipThingie.SetToolTip(this.comboBoxItemQuality, "Item Quality");
-            this.comboBoxItemQuality.SelectedIndexChanged += new System.EventHandler(this.ComboBoxItemQuality_SelectedIndexChanged);
+            this.comboBoxItemQuality.SelectedIndexChanged += new System.EventHandler(this.comboBoxItemQuality_SelectedIndexChanged);
             // 
             // panelFilter
             // 
@@ -145,7 +145,7 @@
             this.checkBoxOrderByLevel.Tag = "iatag_ui_orderbylevel";
             this.checkBoxOrderByLevel.Text = "Order By Level";
             this.checkBoxOrderByLevel.UseVisualStyleBackColor = true;
-            this.checkBoxOrderByLevel.CheckedChanged += new System.EventHandler(this.CheckBoxOrderByLevel_CheckedChanged);
+            this.checkBoxOrderByLevel.CheckedChanged += new System.EventHandler(this.checkBoxOrderByLevel_CheckedChanged);
             // 
             // minLevel
             // 

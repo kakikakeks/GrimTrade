@@ -263,6 +263,12 @@
     </Compile>
     <Compile Include="Theme\ScrollPanelMessageFilter.cs" />
     <Compile Include="Theme\Theme.cs" />
+    <Compile Include="UI\DesiredSkills.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\DesiredSkills.Designer.cs">
+      <DependentUpon>DesiredSkills.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\Misc\HtmlTranslation.cs" />
     <Compile Include="UI\Misc\RequestRecipeArgument.cs" />
     <Compile Include="UI\Misc\TextboxHoverFocusHighlight.cs" />
@@ -459,6 +465,9 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\DesiredSkills.resx">
+      <DependentUpon>DesiredSkills.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Popups\BackupNagScreen.resx">
       <DependentUpon>BackupNagScreen.cs</DependentUpon>

@@ -56,7 +56,7 @@
             this.buttonImport.TabIndex = 8;
             this.buttonImport.Tag = "iatag_ui_import";
             this.buttonImport.Text = "Import";
-            this.buttonImport.Click += new System.EventHandler(this.buttonImport_Click);
+            //this.buttonImport.Click += new System.EventHandler(this.buttonImport_Click);
             // 
             // ImportExportModePicker
             // 

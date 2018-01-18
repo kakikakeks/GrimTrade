@@ -90,20 +90,20 @@ namespace IAGrim.Utilities
                     }
 
 
-                    foreach (string potential in files) {
-                        string fn;
-                        if (StashManager.TryGetModLabel(potential, out fn)) {
-                            ParsedFiles.Add(potential);
-                            var lastAccess = File.GetLastWriteTime(potential);
-                            TransferFilesCache.Add(new GDTransferFile {
-                                Filename = potential,
-                                Mod = fn,
-                                IsHardcore = IsHardcore(potential),
-                                LastAccess = lastAccess
-                            });
-                        }
+                    //foreach (string potential in files) {
+                    //    string fn;
+                    //    if (StashManager.TryGetModLabel(potential, out fn)) {
+                    //        ParsedFiles.Add(potential);
+                    //        var lastAccess = File.GetLastWriteTime(potential);
+                    //        TransferFilesCache.Add(new GDTransferFile {
+                    //            Filename = potential,
+                    //            Mod = fn,
+                    //            IsHardcore = IsHardcore(potential),
+                    //            LastAccess = lastAccess
+                    //        });
+                    //    }
 
-                    }
+                    //}
                 }
 
                 return new List<GDTransferFile>(TransferFilesCache);

@@ -97,7 +97,7 @@ namespace IAGrim.BuddyShare
                 catch (Exception ex) {
                     Logger.Error(ex.Message);
                     Logger.Error(ex.StackTrace);
-                    ExceptionReporter.ReportException(ex);
+                    //ExceptionReporter.ReportException(ex);
                 }
             }
         }

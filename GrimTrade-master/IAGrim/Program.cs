@@ -179,7 +179,7 @@ namespace IAGrim
                         Run(threadExecuter);
                     }
                 } else {
-                    singleInstance_ArgumentsReceived(null, null);
+                    //singleInstance_ArgumentsReceived(null, null);
                 }
             }
         }
@@ -217,18 +217,18 @@ namespace IAGrim
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private static void SingleInstance_ArgumentsReceived(object _, ArgumentsReceivedEventArgs e) {
-            try {
-                if (_mw != null) {
-                    Action<string[]> restoreWindow = arguments => {
-                        _mw.WindowState = FormWindowState.Normal;
-                        _mw.Activate();
-                    };
+        //private static void SingleInstance_ArgumentsReceived(object _, ArgumentsReceivedEventArgs e) {
+        //    try {
+        //        if (_mw != null) {
+        //            Action<string[]> restoreWindow = arguments => {
+        //                _mw.WindowState = FormWindowState.Normal;
+        //                _mw.Activate();
+        //            };
 
-                    _mw.Invoke(restoreWindow);
-                }
-            } 
-        }
+        //            _mw.Invoke(restoreWindow);
+        //        }
+        //    } 
+        //}
 
         private static void PrintStartupInfo(SessionFactory factory) {
             if (Properties.Settings.Default.StashToLootFrom == 0) {

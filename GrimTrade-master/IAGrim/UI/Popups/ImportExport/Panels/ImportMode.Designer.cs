@@ -73,7 +73,7 @@
             this.buttonImport.TabIndex = 6;
             this.buttonImport.Tag = "iatag_ui_import";
             this.buttonImport.Text = "Import";
-            this.buttonImport.Click += new System.EventHandler(this.buttonImport_Click);
+            //this.buttonImport.Click += new System.EventHandler(this.buttonImport_Click);
             // 
             // panelBox1
             // 

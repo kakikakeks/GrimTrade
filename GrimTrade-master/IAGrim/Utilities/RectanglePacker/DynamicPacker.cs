@@ -26,12 +26,12 @@ namespace IAGrim.Utilities.RectanglePacker
 
                 var bitmap = string.Format("{0}.png", Path.GetFileName(tmp[key].Replace(".dbr", ".tex")));
                 int h, w;
-                ItemSizeService.MapItemSize(bitmap, out h, out w);
+                //ItemSizeService.MapItemSize(bitmap, out h, out w);
 
-                itemShapeCache[key] = new Shape {
-                    Width = w,
-                    Height = h
-                };
+                //itemShapeCache[key] = new Shape {
+                //    Width = w,
+                //    Height = h
+                //};
             }
             
         }

@@ -146,7 +146,7 @@ namespace IAGrim.BuddyShare
                 if (ex.Status != WebExceptionStatus.NameResolutionFailure && ex.Status != WebExceptionStatus.Timeout) {
                     Logger.Warn(ex.Message);
                     Logger.Warn(ex.StackTrace);
-                    ExceptionReporter.ReportException(ex);
+                    //ExceptionReporter.ReportException(ex);
                 }
                 else {
                     Logger.Info("Could not resolve DNS for buddy server, skipping upload.");
@@ -155,7 +155,7 @@ namespace IAGrim.BuddyShare
             catch (Exception ex) {
                 Logger.Error(ex.Message);
                 Logger.Error(ex.StackTrace);
-                ExceptionReporter.ReportException(ex);
+                //ExceptionReporter.ReportException(ex);
             }
 
             return result;
@@ -221,23 +221,23 @@ namespace IAGrim.BuddyShare
                 }
 
                 if (ex.Status != WebExceptionStatus.NameResolutionFailure && ex.Status != WebExceptionStatus.Timeout) {
-                    Logger.Warn(ex.Message);
-                    Logger.Warn(ex.StackTrace);
-                    ExceptionReporter.ReportException(ex);
+                    //Logger.Warn(ex.Message);
+                    //Logger.Warn(ex.StackTrace);
+                    //ExceptionReporter.ReportException(ex);
                 }
                 else {
                     Logger.Info("Could not resolve DNS for buddy server, skipping upload.");
                 }
             }
-            catch (IOException ex) {
-                Logger.Warn(ex.Message);
-                Logger.Warn(ex.StackTrace);
-            }
-            catch (Exception ex) {
-                Logger.Error(ex.Message);
-                Logger.Error(ex.StackTrace);
-                ExceptionReporter.ReportException(ex);
-            }
+            //catch (IOException ex) {
+            //    Logger.Warn(ex.Message);
+            //    Logger.Warn(ex.StackTrace);
+            //}
+            //catch (Exception ex) {
+            //    Logger.Error(ex.Message);
+            //    Logger.Error(ex.StackTrace);
+            //    ExceptionReporter.ReportException(ex);
+            //}
 
             return null;
         }

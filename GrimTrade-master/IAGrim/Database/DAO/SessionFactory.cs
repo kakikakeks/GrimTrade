@@ -119,18 +119,20 @@ namespace IAGrim.Database
                     new SchemaUpdate(configuration).Execute(true, true);
                     return configuration.BuildSessionFactory();
                 }
-                catch (Exception ex) {
+                catch (Exception ex)
+                {
                     logger.Warn(ex.Message);
                     logger.Warn(ex.StackTrace);
-                    ExceptionReporter.ReportException(ex);
+                    //ExceptionReporter.ReportException(ex);
                     throw;
-                }                
+                }
             }
-            catch (System.Reflection.TargetInvocationException ex) {
+            catch (System.Reflection.TargetInvocationException ex)
+            {
                 logger.Warn(ex.Message);
                 logger.Warn(ex.StackTrace);
-                ExceptionReporter.ReportException(ex.InnerException);
-                ExceptionReporter.ReportException(ex, "[Outer Exception]", true);
+                //ExceptionReporter.ReportException(ex.InnerException);
+                //ExceptionReporter.ReportException(ex, "[Outer Exception]", true);
                 throw;
             }
         }
