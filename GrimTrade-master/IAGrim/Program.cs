@@ -34,10 +34,12 @@ namespace IAGrim
         private static void Test() {
             string bracket = "[";
             var splitted = bracket.Split('[');
-            List<int> xl = new List<int>();
-            xl.Add(1);
-            xl.Add(5);
-            xl.Add(2);
+            List<int> xl = new List<int>
+            {
+                1,
+                5,
+                2
+            };
             var t = xl.Take(50).ToList();
 
             //int x = 9;
@@ -326,9 +328,10 @@ namespace IAGrim
             Logger.Info("Visual styles enabled..");
             UpgradeSettings(playerItemDao);
 
-            var language = GlobalSettings.Language as StatTranslator.EnglishLanguage;
-            if (language != null) {
-                foreach (var tag in databaseItemDao.GetClassItemTags()) {
+            if (GlobalSettings.Language is StatTranslator.EnglishLanguage language)
+            {
+                foreach (var tag in databaseItemDao.GetClassItemTags())
+                {
                     language.SetTagIfMissing(tag.Tag, tag.Name);
                 }
             }
