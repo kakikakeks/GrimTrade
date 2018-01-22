@@ -1,16 +1,17 @@
 {
   "ExpandedNodes": [
     "",
+    "\\Concept",
     "\\GrimTrade-master",
+    "\\GrimTrade-master\\Evilsoft.Commons",
     "\\GrimTrade-master\\IAGrim",
+    "\\GrimTrade-master\\IAGrim\\BuddyShare",
     "\\GrimTrade-master\\IAGrim\\Database",
     "\\GrimTrade-master\\IAGrim\\Database\\DAO",
     "\\GrimTrade-master\\IAGrim\\Services",
-    "\\GrimTrade-master\\IAGrim\\Services\\Dto",
-    "\\GrimTrade-master\\IAGrim\\UI",
-    "\\GrimTrade-master\\IAGrim\\UI\\Popups",
-    "\\GrimTrade-master\\IAGrim\\UI\\Popups\\ImportExport"
+    "\\GrimTrade-master\\IAGrim\\Services\\MessageProcessor",
+    "\\GrimTrade-master\\IAGrim\\Utilities"
   ],
-  "SelectedNode": "\\GrimTrade-master\\IAGrim\\UI\\Popups\\ImportExport\\ImportExportContainer.Designer.cs",
+  "SelectedNode": "\\GrimTrade-master\\IAGrim\\Services\\MessageProcessor\\PlayerPositionTracker.cs",
   "PreviewInSolutionExplorer": false
 }
