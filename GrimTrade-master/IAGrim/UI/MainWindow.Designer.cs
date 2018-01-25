@@ -131,6 +131,7 @@
             this.searchPanel.Name = "searchPanel";
             this.searchPanel.Size = new System.Drawing.Size(707, 561);
             this.searchPanel.TabIndex = 1;
+            this.searchPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.searchPanel_Paint);
             // 
             // buttonDevTools
             // 

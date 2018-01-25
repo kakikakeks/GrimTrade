@@ -212,8 +212,7 @@ namespace IAGrim.UI
 
         private void IterAndCloseForms(Control.ControlCollection controls) {
             foreach (Control c in controls) {
-                Form f = c as Form;
-                if (f != null)
+                if (c is Form f)
                     f.Close();
 
                 IterAndCloseForms(c.Controls);
@@ -814,8 +813,7 @@ private void OnMinimizeWindow(object sender, EventArgs e) {
             if (InvokeRequired) {
                 Invoke((MethodInvoker)delegate { SetItemsClipboard(ignored, _args); });
             } else {
-                ClipboardEventArg args = _args as ClipboardEventArg;
-                if (args != null) Clipboard.SetText(args.Text);
+                if (_args is ClipboardEventArg args) Clipboard.SetText(args.Text);
                 _tooltipHelper.ShowTooltipAtMouse(GlobalSettings.Language.GetTag("iatag_copied_clipboard"), _cefBrowserHandler.BrowserControl);
             }
         }
@@ -827,6 +825,11 @@ private void OnMinimizeWindow(object sender, EventArgs e) {
         }
 
         private void statusLabel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void searchPanel_Paint(object sender, PaintEventArgs e)
         {
 
         }
