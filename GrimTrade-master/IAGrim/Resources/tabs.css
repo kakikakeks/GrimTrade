@@ -1,6 +1,6 @@
 ﻿/* Style the tab */
 div.tab {
-    overflow: hidden;
+    overflow: auto;
     border: 1px solid #ccc;
     background-color: #C1C1C1;
     border-radius: 2px 2px 0px 0px;
